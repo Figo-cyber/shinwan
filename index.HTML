@@ -56,9 +56,10 @@ h2.in{background-size:100% 30%}
 .btn:hover{transform:translateY(-3px)}.btn:active{transform:translateY(2px)}
 .avatar-w{position:relative;max-width:330px;margin:auto;width:100%}
 .avatar{aspect-ratio:1;border-radius:50%;background:var(--yellow);border:6px solid var(--surface);box-shadow:0 0 0 4px var(--yellow-d);
- display:grid;place-items:center;position:relative;animation:float 4s ease-in-out infinite;cursor:pointer}
+ display:grid;place-items:center;position:relative;animation:float 4s ease-in-out infinite;cursor:pointer;overflow:hidden}
 .avatar::before{content:"";position:absolute;inset:-22px;border-radius:50%;border:3px dashed var(--yellow-d);animation:spin 22s linear infinite;opacity:.6}
 .avatar span{font-family:'Fraunces',serif;font-weight:800;font-size:5rem;color:#2B2A33}
+.avatar img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:50%}
 .chip{position:absolute;background:var(--surface);border:2px solid var(--line);border-radius:12px;padding:2px 10px;font-weight:700;font-size:.85rem;animation:float 3s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-12px)}}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -78,14 +79,12 @@ h2.in{background-size:100% 30%}
 .tag:hover{background:var(--yellow);color:#2B2A33;transform:translateY(-3px) rotate(-3deg)}
 .hob{text-align:center}.hob .e{font-size:2.4rem;display:inline-block;transition:transform .3s}
 .hob:hover .e{transform:scale(1.35) rotate(-12deg)}
-.proj{cursor:pointer;text-align:left;font:inherit;color:inherit}
-.ph{height:120px;border-radius:10px;background:var(--soft);display:grid;place-items:center;font-size:2.6rem;margin-bottom:10px;border:2px dashed var(--yellow)}
-.proj:hover .ph{background:var(--yellow)}
-dialog{margin:auto;max-width:480px;width:90%;border:3px solid var(--yellow);border-radius:16px;padding:24px;background:var(--surface);color:var(--ink)}
-dialog[open]{animation:dlg .35s cubic-bezier(.3,1.4,.5,1)}
-@keyframes dlg{from{opacity:0;transform:scale(.8) translateY(30px)}}
-dialog::backdrop{background:rgba(30,30,40,.55);backdrop-filter:blur(3px)}
-dialog button{margin-top:14px}
+/* galeri */
+.galeri{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.galeri figure{background:var(--surface);border:2px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
+.galeri figure:hover{border-color:var(--yellow);box-shadow:0 14px 30px -12px var(--glow),0 6px 0 var(--yellow);transform:translateY(-4px)}
+.galeri img{width:100%;height:240px;object-fit:cover;display:block}
+.galeri figcaption{padding:12px 16px;font-weight:700;text-align:center;color:var(--navy);background:var(--soft)}
 .contact a.c{display:flex;gap:12px;align-items:center;text-decoration:none;font-weight:700;color:var(--ink);padding:8px 10px;border-radius:10px;transition:.2s}
 .contact a.c:hover{background:var(--soft);transform:translateX(8px);color:var(--yellow-d)}
 footer{margin-top:72px;background:var(--yellow);color:#2B2A33;text-align:center;padding:26px 5vw calc(26px + env(safe-area-inset-bottom,0px));font-weight:700}
@@ -147,7 +146,7 @@ footer small{display:block;font-weight:400}
  </div>
  <div class="avatar-w">
   <div class="avatar" id="av" title="Klik aku!" aria-label="Foto profil Shinwan, klik untuk konfeti">
-   <!-- Ganti dengan fotomu: <img src="foto-shinwan.png" alt="Foto Shinwan" style="width:100%;height:100%;border-radius:50%;object-fit:cover;position:absolute;inset:0"> -->
+   <img src="shinwan1.png" alt="Foto Shinwan">
    <span>SA</span>
   </div>
   <div class="chip" style="top:4%;right:-4%">💡 Cerdas</div>
@@ -185,13 +184,18 @@ footer small{display:block;font-weight:400}
 </section>
 
 <section id="projects">
- <h2>My Projects</h2><p class="sub">Hasil karya saya (klik kartu untuk melihat detail)</p>
- <div class="grid">
-  <button class="card proj tilt rv" data-t="Website Portofolio Pribadi" data-d="Website yang menampilkan profil, kemampuan, dan cita-citaku dalam satu tempat." data-g="Memenuhi tugas portofolio digital dan belajar membuat website." data-a="HTML, CSS, JavaScript"><div class="ph">🌐</div><h3>Website Portofolio Pribadi</h3><p>Halaman yang sedang kamu lihat sekarang.</p></button>
-  <button class="card proj tilt rv" style="--d:.12s" data-t="[Judul karya/tugas sekolahmu]" data-d="[Tulis deskripsi singkat karyamu di sini.]" data-g="[Tulis tujuan pembuatan karya.]" data-a="[Aplikasi/teknologi yang dipakai]"><div class="ph">🎨</div><h3>[Karya kedua]</h3><p>Ganti dengan poster, presentasi, atau tugas sekolahmu.</p></button>
+ <h2>My Projects</h2><p class="sub">Galeri foto saya</p>
+ <div class="galeri rv">
+  <figure>
+   <img src="shinwan1.png" alt="Foto Shinwan">
+   <figcaption>Foto Shinwan</figcaption>
+  </figure>
+  <figure style="--d:.12s">
+   <img src="shinwan2.png" alt="Foto bersama Shinwan">
+   <figcaption>Foto Bersama Shinwan</figcaption>
+  </figure>
  </div>
 </section>
-<dialog id="dlg"><h3 id="d1"></h3><p id="d2" style="margin-top:8px"></p><p style="margin-top:8px"><b>Tujuan:</b> <span id="d3"></span></p><p><b>Dibuat dengan:</b> <span id="d4"></span></p><button class="btn p" id="close">Tutup</button></dialog>
 
 <section id="achievements">
  <h2>My Achievements</h2><p class="sub">Prestasi saya</p>
@@ -316,10 +320,6 @@ document.getElementById('av').onclick=e=>{
   const a=Math.random()*Math.PI*2,v=120+Math.random()*180;
   d.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:'translate('+Math.cos(a)*v+'px,'+(Math.sin(a)*v+160)+'px) rotate('+(Math.random()*720)+'deg)',opacity:0}],{duration:1100+Math.random()*600,easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=()=>d.remove()}
 };
-// Detail proyek
-const dlg=document.getElementById('dlg');
-document.querySelectorAll('.proj').forEach(p=>p.onclick=()=>{d1.textContent=p.dataset.t;d2.textContent=p.dataset.d;d3.textContent=p.dataset.g;d4.textContent=p.dataset.a;dlg.showModal()});
-document.getElementById('close').onclick=()=>dlg.close();
 </script>
 </body>
 </html>
