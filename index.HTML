@@ -2,300 +2,324 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Portofolio Shinwan Athaa Kanz</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,800;1,700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#FFFEF9; --surface:#FFFFFF; --soft:#FFF6D6; --ink:#2B2A33; --muted:#5E5B6B;
-  --yellow:#F6C026; --yellow-d:#B98300; --line:#F0E2A8; --navy:#26324F;
-}
-:root[data-theme="dark"]{
-  --bg:#1D2233; --surface:#262C42; --soft:#2F3652; --ink:#F4F1E4; --muted:#B9B7C7;
-  --yellow:#F8CC4A; --yellow-d:#F8CC4A; --line:#3C4466; --navy:#F8CC4A;
-}
+:root{--bg:#FFFEF9;--surface:#FFFFFF;--soft:#FFF6D6;--ink:#2B2A33;--muted:#5E5B6B;--yellow:#F6C026;--yellow-d:#B98300;--line:#F0E2A8;--navy:#26324F;--glow:rgba(246,192,38,.28)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1D2233;--surface:#262C42;--soft:#2F3652;--ink:#F4F1E4;--muted:#B9B7C7;--yellow:#F8CC4A;--yellow-d:#F8CC4A;--line:#3C4466;--navy:#F8CC4A;--glow:rgba(248,204,74,.18)}}
+:root[data-theme="dark"]{--bg:#1D2233;--surface:#262C42;--soft:#2F3652;--ink:#F4F1E4;--muted:#B9B7C7;--yellow:#F8CC4A;--yellow-d:#F8CC4A;--line:#3C4466;--navy:#F8CC4A;--glow:rgba(248,204,74,.18)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px);background-size:100% 34px;background-attachment:fixed}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden;
+ background-image:linear-gradient(var(--line) 1px,transparent 1px);background-size:100% 34px;background-attachment:fixed}
 h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.2;color:var(--navy)}
-a{color:inherit}
 :focus-visible{outline:3px solid var(--yellow-d);outline-offset:3px}
-nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);
-  border-bottom:2px solid var(--yellow);display:flex;align-items:center;gap:8px;padding:10px 4vw;flex-wrap:wrap}
+#prog{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--yellow),#FF8A5B,var(--yellow));z-index:50}
+#glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:0;left:0;top:0;
+ background:radial-gradient(circle,var(--glow),transparent 65%);transform:translate(-50%,-50%);opacity:0;transition:opacity .4s}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);
+ border-bottom:2px solid var(--yellow);display:flex;align-items:center;gap:6px;padding:10px 4vw;flex-wrap:wrap}
 .logo{font-family:'Fraunces',serif;font-weight:800;color:var(--navy);margin-right:auto;text-decoration:none}
-nav a.l{font-weight:700;font-size:.92rem;padding:4px 10px;border-radius:8px;text-decoration:none;color:var(--muted)}
-nav a.l:hover{background:var(--soft);color:var(--ink)}
-#theme{border:2px solid var(--yellow);background:var(--soft);color:var(--ink);border-radius:999px;padding:4px 12px;font:inherit;cursor:pointer}
+nav a.l{font-weight:700;font-size:.9rem;padding:4px 10px;border-radius:8px;text-decoration:none;color:var(--muted);transition:.2s}
+nav a.l:hover,nav a.l.on{background:var(--yellow);color:#2B2A33;transform:translateY(-2px)}
+#theme{border:2px solid var(--yellow);background:var(--soft);color:var(--ink);border-radius:999px;padding:4px 12px;font:inherit;cursor:pointer;transition:transform .3s}
+#theme:hover{transform:rotate(-6deg) scale(1.06)}
+main,footer{position:relative;z-index:1}
 section{max-width:1000px;margin:0 auto;padding:72px 5vw 8px}
-h2{font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:6px;display:inline-block;
-  background:linear-gradient(transparent 62%,var(--yellow) 62%,var(--yellow) 92%,transparent 92%)}
+h2{font-size:clamp(1.6rem,4vw,2.3rem);margin-bottom:6px;display:inline-block;
+ background:linear-gradient(var(--yellow),var(--yellow)) 0 92%/0% 30% no-repeat;transition:background-size .9s .2s}
+h2.in{background-size:100% 30%}
 .sub{color:var(--muted);margin-bottom:24px}
-.card{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:22px}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:22px;transition:transform .25s,border-color .25s,box-shadow .25s;transform-style:preserve-3d}
+.card:hover{border-color:var(--yellow);box-shadow:0 14px 30px -12px var(--glow),0 6px 0 var(--yellow)}
 .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.rv{opacity:0;transform:translateY(34px) scale(.97);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
 /* hero */
-#home{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;min-height:82vh;padding-top:48px}
+#home{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;min-height:86vh;padding-top:48px;position:relative}
 .hero-tag{display:inline-block;background:var(--soft);border:2px solid var(--yellow);border-radius:999px;padding:2px 14px;font-weight:700;font-size:.9rem}
-#home h1{font-size:clamp(2.2rem,6vw,3.8rem);margin:14px 0 6px;animation:rise .9s ease both}
-#home .quote{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--yellow-d);margin:10px 0}
+#home h1{font-size:clamp(2.3rem,6.4vw,4rem);margin:14px 0 6px}
+#home h1 span{display:inline-block;opacity:0;transform:translateY(40px) rotate(6deg);animation:pop .7s cubic-bezier(.3,1.5,.5,1) forwards}
+@keyframes pop{to{opacity:1;transform:none}}
+.role{font-weight:700;font-size:1.15rem;min-height:1.8em}
+.role b{color:var(--yellow-d)}.role i{display:inline-block;width:2px;height:1.1em;background:var(--yellow-d);vertical-align:-3px;margin-left:2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.quote{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--yellow-d);margin:10px 0}
 .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-.btn{display:inline-block;padding:11px 22px;border-radius:12px;font-weight:700;text-decoration:none;border:2px solid var(--yellow);transition:transform .15s,box-shadow .15s}
-.btn.p{background:var(--yellow);color:#2B2A33;box-shadow:0 4px 0 var(--yellow-d)}
+.btn{display:inline-block;padding:11px 22px;border-radius:12px;font-weight:700;text-decoration:none;border:2px solid var(--yellow);transition:transform .15s,box-shadow .15s;cursor:pointer;font-family:inherit;font-size:1rem}
+.btn.p{background:var(--yellow);color:#2B2A33;box-shadow:0 4px 0 var(--yellow-d);position:relative;overflow:hidden}
+.btn.p::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-20deg);animation:shine 3.2s 2s infinite}
+@keyframes shine{to{left:150%}}
 .btn.s{background:var(--surface);color:var(--ink)}
-.btn:hover{transform:translateY(-2px)}
-.avatar{aspect-ratio:1;max-width:320px;margin:auto;border-radius:50%;background:var(--yellow);border:6px solid var(--surface);
-  box-shadow:0 0 0 4px var(--yellow-d);display:grid;place-items:center;position:relative;animation:float 4s ease-in-out infinite}
+.btn:hover{transform:translateY(-3px)}.btn:active{transform:translateY(2px)}
+.avatar-w{position:relative;max-width:330px;margin:auto;width:100%}
+.avatar{aspect-ratio:1;border-radius:50%;background:var(--yellow);border:6px solid var(--surface);box-shadow:0 0 0 4px var(--yellow-d);
+ display:grid;place-items:center;position:relative;animation:float 4s ease-in-out infinite;cursor:pointer}
+.avatar::before{content:"";position:absolute;inset:-22px;border-radius:50%;border:3px dashed var(--yellow-d);animation:spin 22s linear infinite;opacity:.6}
 .avatar span{font-family:'Fraunces',serif;font-weight:800;font-size:5rem;color:#2B2A33}
-.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;position:absolute;inset:0}
-.chip{position:absolute;background:var(--surface);border:2px solid var(--line);border-radius:12px;padding:2px 10px;font-weight:700;font-size:.85rem;color:var(--ink)}
-@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-@keyframes float{50%{transform:translateY(-10px)}}
-/* about */
-.info{list-style:none;display:grid;gap:6px;margin-top:10px}
-.info b{color:var(--navy)}
-/* skills */
-.bar{margin:12px 0}.bar div.t{display:flex;justify-content:space-between;font-weight:700;font-size:.95rem}
-.track{height:12px;background:var(--soft);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
-.fill{height:100%;background:linear-gradient(90deg,var(--yellow),#FFDF73);border-radius:99px;width:0;transition:width 1.2s ease}
-/* tags */
+.chip{position:absolute;background:var(--surface);border:2px solid var(--line);border-radius:12px;padding:2px 10px;font-weight:700;font-size:.85rem;animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fl{position:absolute;font-size:1.8rem;opacity:.55;pointer-events:none;animation:drift 7s ease-in-out infinite}
+@keyframes drift{50%{transform:translate(14px,-26px) rotate(18deg)}}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:8px}
+.stat{text-align:center;background:var(--soft);border:2px solid var(--yellow);border-radius:16px;padding:16px}
+.stat strong{font-family:'Fraunces',serif;font-size:2.2rem;color:var(--navy);display:block}
+.info{list-style:none;display:grid;gap:6px;margin-top:10px}.info b{color:var(--navy)}
+.bar{margin:14px 0}.bar .t{display:flex;justify-content:space-between;font-weight:700;font-size:.95rem}
+.track{height:14px;background:var(--soft);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.fill{height:100%;background:linear-gradient(90deg,var(--yellow),#FFDF73,var(--yellow));background-size:200% 100%;border-radius:99px;width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1);animation:slide 3s linear infinite}
+@keyframes slide{to{background-position:-200% 0}}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.tag{background:var(--soft);border:1.5px solid var(--yellow);border-radius:999px;padding:2px 12px;font-size:.85rem;font-weight:700}
-.hob{text-align:center}.hob .e{font-size:2.2rem}
+.tag{background:var(--soft);border:1.5px solid var(--yellow);border-radius:999px;padding:2px 12px;font-size:.85rem;font-weight:700;transition:.2s}
+.tag:hover{background:var(--yellow);color:#2B2A33;transform:translateY(-3px) rotate(-3deg)}
+.hob{text-align:center}.hob .e{font-size:2.4rem;display:inline-block;transition:transform .3s}
+.hob:hover .e{transform:scale(1.35) rotate(-12deg)}
 .proj{cursor:pointer;text-align:left;font:inherit;color:inherit}
-.proj:hover{border-color:var(--yellow)}
-.ph{height:120px;border-radius:10px;background:var(--soft);display:grid;place-items:center;font-size:2.4rem;margin-bottom:10px;border:2px dashed var(--yellow)}
+.ph{height:120px;border-radius:10px;background:var(--soft);display:grid;place-items:center;font-size:2.6rem;margin-bottom:10px;border:2px dashed var(--yellow)}
+.proj:hover .ph{background:var(--yellow)}
 dialog{margin:auto;max-width:480px;width:90%;border:3px solid var(--yellow);border-radius:16px;padding:24px;background:var(--surface);color:var(--ink)}
-dialog::backdrop{background:rgba(30,30,40,.55)}
+dialog[open]{animation:dlg .35s cubic-bezier(.3,1.4,.5,1)}
+@keyframes dlg{from{opacity:0;transform:scale(.8) translateY(30px)}}
+dialog::backdrop{background:rgba(30,30,40,.55);backdrop-filter:blur(3px)}
 dialog button{margin-top:14px}
-.contact a.c{display:flex;gap:12px;align-items:center;text-decoration:none;font-weight:700}
-.contact a.c:hover{color:var(--yellow-d)}
-footer{margin-top:72px;background:var(--yellow);color:#2B2A33;text-align:center;padding:26px 5vw;font-weight:700}
+.contact a.c{display:flex;gap:12px;align-items:center;text-decoration:none;font-weight:700;color:var(--ink);padding:8px 10px;border-radius:10px;transition:.2s}
+.contact a.c:hover{background:var(--soft);transform:translateX(8px);color:var(--yellow-d)}
+footer{margin-top:72px;background:var(--yellow);color:#2B2A33;text-align:center;padding:26px 5vw calc(26px + env(safe-area-inset-bottom,0px));font-weight:700}
 footer small{display:block;font-weight:400}
-#top{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;border:2px solid var(--yellow-d);background:var(--yellow);
-  color:#2B2A33;font-size:1.3rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s}
-#top.show{opacity:1;pointer-events:auto}
+#top{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:46px;height:46px;border-radius:50%;border:2px solid var(--yellow-d);background:var(--yellow);
+ color:#2B2A33;font-size:1.3rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:30}
+#top.show{opacity:1;pointer-events:auto}#top:hover{transform:translateY(-4px)}
+.cf{position:fixed;width:10px;height:14px;z-index:90;pointer-events:none;border-radius:2px}
+/* welcome */
 #welcome{position:fixed;inset:0;z-index:99;background:#FFFBEF;display:grid;place-items:center;text-align:center;color:#3A4666;
-  background-image:linear-gradient(#F6EDCB 1px,transparent 1px);background-size:100% 36px;animation:out .6s 12s forwards;transition:opacity .8s ease,visibility .8s}
+ background-image:linear-gradient(#F6EDCB 1px,transparent 1px);background-size:100% 36px;animation:out .6s 12s forwards;transition:opacity .8s ease,visibility .8s}
 #welcome.done{opacity:0;visibility:hidden}
 .ld{width:min(92vw,460px);padding:0 20px}
 .wrap{display:inline-block;position:relative;max-width:100%;margin-top:80px}
 .wbox{position:relative}
-.wtext{display:block;font-family:'Fraunces',serif;font-style:italic;font-weight:700;font-size:clamp(1.5rem,7vw,2.6rem);color:#3A4666;
-  white-space:nowrap;line-height:1.3;clip-path:inset(-40% 100% -40% 0)}
-.pen{position:absolute;left:0;top:0;transform-origin:2px 13px;will-change:transform;pointer-events:none;overflow:visible;
-  filter:drop-shadow(0 2px 2px rgba(70,55,20,.18))}
+.wtext{display:block;font-family:'Fraunces',serif;font-style:italic;font-weight:700;font-size:clamp(1.5rem,7vw,2.6rem);color:#3A4666;white-space:nowrap;line-height:1.3;clip-path:inset(-40% 100% -40% 0)}
+.pen{position:absolute;left:0;top:0;transform-origin:2px 13px;will-change:transform;pointer-events:none;overflow:visible;filter:drop-shadow(0 2px 2px rgba(70,55,20,.18))}
 .ltrack{height:6px;margin-top:10px;background:#F3E7B8;border-radius:99px;overflow:hidden}
 #lfill{height:100%;width:0;background:#E9C24F;border-radius:99px}
 #ldtxt{margin:18px 0 2px;font-weight:600;color:#7A7787;min-height:1.7em}
 #lpct{display:block;font-family:'Fraunces',serif;font-weight:600;color:#B58A1E}
 @keyframes out{to{opacity:0;visibility:hidden}}
-@media(max-width:720px){#home{grid-template-columns:1fr;text-align:center;min-height:auto}.btns{justify-content:center}.avatar{max-width:220px;order:-1}}
-@media(prefers-reduced-motion:reduce){.pen,.avatar,#home h1{animation:none!important}}
+@media(max-width:720px){#home{grid-template-columns:1fr;text-align:center;min-height:auto}.btns{justify-content:center}.avatar-w{max-width:230px;order:-1}}
+@media(hover:none){#glow{display:none}}
+@media(prefers-reduced-motion:reduce){.pen,.avatar,.avatar::before,.chip,.fl,.fill,.btn.p::after{animation:none!important}.rv{opacity:1;transform:none;transition:none}#home h1 span{animation:none;opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<div id="prog"></div><div id="glow"></div>
 
 <div id="welcome" role="status" aria-live="polite">
-  <div class="ld">
-    <div class="wrap">
-      <div class="wbox">
-        <div class="wtext" id="wtext">Shinwan Athaa Kanz</div>
-        <svg class="pen" id="pen" width="84" height="20" viewBox="0 0 100 24" aria-hidden="true">
-          <polygon points="2,12 22,5 22,19" fill="#EBD3A5"/>
-          <polygon points="2,12 9,9.4 9,14.6" fill="#3B3F54"/>
-          <rect x="22" y="5" width="50" height="14" fill="#F2C94C"/>
-          <rect x="22" y="5" width="50" height="4" fill="#F8E08A"/>
-          <rect x="22" y="15" width="50" height="4" fill="#D9A920"/>
-          <rect x="72" y="5" width="10" height="14" fill="#B8BCC8"/>
-          <rect x="75" y="5" width="1.2" height="14" fill="#8F94A3"/>
-          <rect x="78.5" y="5" width="1.2" height="14" fill="#8F94A3"/>
-          <rect x="82" y="5" width="12" height="14" rx="5" fill="#E9A3A3"/>
-        </svg>
-      </div>
-      <div class="ltrack"><div id="lfill"></div></div>
-    </div>
-    <p id="ldtxt">Mengambil pensil…</p>
-    <b id="lpct">0%</b>
-  </div>
+ <div class="ld"><div class="wrap"><div class="wbox">
+  <div class="wtext" id="wtext">Shinwan Athaa Kanz</div>
+  <svg class="pen" id="pen" width="84" height="20" viewBox="0 0 100 24" aria-hidden="true">
+   <polygon points="2,12 22,5 22,19" fill="#EBD3A5"/><polygon points="2,12 9,9.4 9,14.6" fill="#3B3F54"/>
+   <rect x="22" y="5" width="50" height="14" fill="#F2C94C"/><rect x="22" y="5" width="50" height="4" fill="#F8E08A"/><rect x="22" y="15" width="50" height="4" fill="#D9A920"/>
+   <rect x="72" y="5" width="10" height="14" fill="#B8BCC8"/><rect x="75" y="5" width="1.2" height="14" fill="#8F94A3"/><rect x="78.5" y="5" width="1.2" height="14" fill="#8F94A3"/>
+   <rect x="82" y="5" width="12" height="14" rx="5" fill="#E9A3A3"/>
+  </svg></div><div class="ltrack"><div id="lfill"></div></div></div>
+  <p id="ldtxt">Mengambil pensil…</p><b id="lpct">0%</b></div>
 </div>
 
 <nav>
-  <a class="logo" href="#home">Shinwan ✦</a>
-  <a class="l" href="#home">Home</a><a class="l" href="#about">About</a><a class="l" href="#skills">Skills</a>
-  <a class="l" href="#projects">Projects</a><a class="l" href="#achievements">Achievements</a><a class="l" href="#education">Education</a>
-  <a class="l" href="#hobbies">Hobbies</a><a class="l" href="#goals">Goals</a><a class="l" href="#contact">Contact</a>
-  <button id="theme" aria-label="Ganti tema">🌙 Gelap</button>
+ <a class="logo" href="#home">Shinwan ✦</a>
+ <a class="l" href="#home">Home</a><a class="l" href="#about">About</a><a class="l" href="#skills">Skills</a><a class="l" href="#projects">Projects</a><a class="l" href="#achievements">Achievements</a><a class="l" href="#education">Education</a><a class="l" href="#hobbies">Hobbies</a><a class="l" href="#goals">Goals</a><a class="l" href="#contact">Contact</a>
+ <button id="theme" aria-label="Ganti tema">🌙 Gelap</button>
 </nav>
 
-<!-- 1. HOME -->
+<main>
 <section id="home">
-  <div>
-    <span class="hero-tag">🎓 Siswa Kelas 9 Ali</span>
-    <h1>Shinwan Athaa Kanz</h1>
-    <p>Halo! Aku <b>Shinwan</b>, siswa yang suka belajar, penasaran dengan banyak hal, dan senang menyelesaikan tantangan baru.</p>
-    <p class="quote">“Rajin belajar hari ini, jadi cerdas untuk masa depan.”</p>
-    <div class="btns"><a class="btn p" href="#about">Kenali Aku</a><a class="btn s" href="#projects">Lihat Karyaku</a></div>
+ <span class="fl" style="top:8%;left:2%">⭐</span><span class="fl" style="top:70%;left:46%;animation-delay:-2s">✏️</span><span class="fl" style="top:12%;right:4%;animation-delay:-4s">📚</span><span class="fl" style="bottom:6%;right:12%;animation-delay:-1s">⚽</span>
+ <div>
+  <span class="hero-tag">🎓 Siswa Kelas 9 Ali</span>
+  <h1 id="h1" aria-label="Shinwan Athaa Kanz"></h1>
+  <p class="role">Aku seorang <b id="typed"></b><i></i></p>
+  <p style="margin-top:8px">Halo! Aku <b>Shinwan</b>, siswa yang suka belajar, penasaran dengan banyak hal, dan senang menyelesaikan tantangan baru.</p>
+  <p class="quote">“Rajin belajar hari ini, jadi cerdas untuk masa depan.”</p>
+  <div class="btns"><a class="btn p" href="#about">Kenali Aku</a><a class="btn s" href="#projects">Lihat Karyaku</a></div>
+ </div>
+ <div class="avatar-w">
+  <div class="avatar" id="av" title="Klik aku!" aria-label="Foto profil Shinwan, klik untuk konfeti">
+   <!-- Ganti dengan fotomu: <img src="foto-shinwan.png" alt="Foto Shinwan" style="width:100%;height:100%;border-radius:50%;object-fit:cover;position:absolute;inset:0"> -->
+   <span>SA</span>
   </div>
-  <div class="avatar" aria-label="Foto profil Shinwan">
-    <!-- Ganti dengan fotomu: <img src="foto-shinwan.png" alt="Foto Shinwan"> -->
-    <span>SA</span>
-    <div class="chip" style="top:6%;right:-4%">💡 Cerdas</div>
-    <div class="chip" style="bottom:8%;left:-6%">📖 Rajin</div>
-  </div>
+  <div class="chip" style="top:4%;right:-4%">💡 Cerdas</div>
+  <div class="chip" style="bottom:8%;left:-6%;animation-delay:-1.5s">📖 Rajin</div>
+ </div>
 </section>
 
-<!-- 2. ABOUT -->
 <section id="about">
-  <h2>About Me</h2><p class="sub">Tentang saya</p>
-  <div class="grid">
-    <div class="card"><h3>Identitas</h3>
-      <ul class="info">
-        <li><b>Nama lengkap:</b> Shinwan Athaa Kanz</li>
-        <li><b>Nama panggilan:</b> Shinwan</li>
-        <li><b>Kelas:</b> 9 Ali</li>
-        <li><b>Sekolah:</b> SMP [isi nama sekolahmu]</li>
-      </ul></div>
-    <div class="card"><h3>Sekilas tentang aku</h3>
-      <p style="margin-top:8px">Aku seorang pelajar yang cerdas, cepat paham, dan suka mencari tahu. Bagiku belajar itu seru, apalagi kalau bisa diselingi futsal, game, dan film.</p></div>
-    <div class="card"><h3>Hal yang kusuka</h3>
-      <div class="tags"><span class="tag">🍜 Makan</span><span class="tag">🎮 Game</span><span class="tag">📚 Buku</span><span class="tag">🎬 Film</span><span class="tag">⚽ Futsal</span><span class="tag">✏️ Belajar</span></div></div>
-  </div>
+ <h2>About Me</h2><p class="sub">Tentang saya</p>
+ <div class="stats rv">
+  <div class="stat"><strong data-n="9">0</strong>Kelas</div>
+  <div class="stat"><strong data-n="6">0</strong>Hobi seru</div>
+  <div class="stat"><strong data-n="5">0</strong>Skill utama</div>
+  <div class="stat"><strong data-n="100" data-s="%">0</strong>Semangat belajar</div>
+ </div>
+ <div class="grid" style="margin-top:16px">
+  <div class="card tilt rv"><h3>Identitas</h3><ul class="info">
+   <li><b>Nama lengkap:</b> Shinwan Athaa Kanz</li><li><b>Nama panggilan:</b> Shinwan</li><li><b>Kelas:</b> 9 Ali</li><li><b>Sekolah:</b> SMP [isi nama sekolahmu]</li></ul></div>
+  <div class="card tilt rv" style="--d:.12s"><h3>Sekilas tentang aku</h3><p style="margin-top:8px">Aku seorang pelajar yang cerdas, cepat paham, dan suka mencari tahu. Bagiku belajar itu seru, apalagi kalau bisa diselingi futsal, game, dan film.</p></div>
+  <div class="card tilt rv" style="--d:.24s"><h3>Hal yang kusuka</h3>
+   <div class="tags"><span class="tag">🍜 Makan</span><span class="tag">🎮 Game</span><span class="tag">📚 Buku</span><span class="tag">🎬 Film</span><span class="tag">⚽ Futsal</span><span class="tag">✏️ Belajar</span></div></div>
+ </div>
 </section>
 
-<!-- 3. SKILLS -->
 <section id="skills">
-  <h2>My Skills</h2><p class="sub">Kemampuan saya</p>
-  <div class="card">
-    <!-- Ubah angka data-v sesuai kemampuanmu yang sebenarnya, ya! -->
-    <div class="bar"><div class="t"><span>🧠 Belajar &amp; berpikir logis</span><span>90%</span></div><div class="track"><div class="fill" data-v="90"></div></div></div>
-    <div class="bar"><div class="t"><span>🤝 Kerja sama tim (futsal &amp; tugas kelompok)</span><span>85%</span></div><div class="track"><div class="fill" data-v="85"></div></div></div>
-    <div class="bar"><div class="t"><span>📖 Membaca &amp; memahami bacaan</span><span>85%</span></div><div class="track"><div class="fill" data-v="85"></div></div></div>
-    <div class="bar"><div class="t"><span>💻 Menggunakan aplikasi digital</span><span>80%</span></div><div class="track"><div class="fill" data-v="80"></div></div></div>
-    <div class="bar"><div class="t"><span>🎤 Public speaking</span><span>70%</span></div><div class="track"><div class="fill" data-v="70"></div></div></div>
-  </div>
+ <h2>My Skills</h2><p class="sub">Kemampuan saya</p>
+ <div class="card rv">
+  <!-- Ubah angka data-v sesuai kemampuanmu yang sebenarnya, ya! -->
+  <div class="bar"><div class="t"><span>🧠 Belajar &amp; berpikir logis</span><span class="pct">90%</span></div><div class="track"><div class="fill" data-v="90"></div></div></div>
+  <div class="bar"><div class="t"><span>🤝 Kerja sama tim (futsal &amp; tugas kelompok)</span><span class="pct">85%</span></div><div class="track"><div class="fill" data-v="85"></div></div></div>
+  <div class="bar"><div class="t"><span>📖 Membaca &amp; memahami bacaan</span><span class="pct">85%</span></div><div class="track"><div class="fill" data-v="85"></div></div></div>
+  <div class="bar"><div class="t"><span>💻 Menggunakan aplikasi digital</span><span class="pct">80%</span></div><div class="track"><div class="fill" data-v="80"></div></div></div>
+  <div class="bar"><div class="t"><span>🎤 Public speaking</span><span class="pct">70%</span></div><div class="track"><div class="fill" data-v="70"></div></div></div>
+ </div>
 </section>
 
-<!-- 4. PROJECTS -->
 <section id="projects">
-  <h2>My Projects</h2><p class="sub">Hasil karya saya (klik kartu untuk melihat detail)</p>
-  <div class="grid">
-    <button class="card proj" data-t="Website Portofolio Pribadi" data-d="Website yang menampilkan profil, kemampuan, dan cita-citaku dalam satu tempat." data-g="Memenuhi tugas portofolio digital dan belajar membuat website." data-a="HTML, CSS, JavaScript">
-      <div class="ph">🌐</div><h3>Website Portofolio Pribadi</h3><p>Halaman yang sedang kamu lihat sekarang.</p></button>
-    <button class="card proj" data-t="[Judul karya/tugas sekolahmu]" data-d="[Tulis deskripsi singkat karyamu di sini.]" data-g="[Tulis tujuan pembuatan karya.]" data-a="[Aplikasi/teknologi yang dipakai]">
-      <div class="ph">🎨</div><h3>[Karya kedua]</h3><p>Ganti dengan poster, presentasi, atau tugas sekolahmu.</p></button>
-  </div>
+ <h2>My Projects</h2><p class="sub">Hasil karya saya (klik kartu untuk melihat detail)</p>
+ <div class="grid">
+  <button class="card proj tilt rv" data-t="Website Portofolio Pribadi" data-d="Website yang menampilkan profil, kemampuan, dan cita-citaku dalam satu tempat." data-g="Memenuhi tugas portofolio digital dan belajar membuat website." data-a="HTML, CSS, JavaScript"><div class="ph">🌐</div><h3>Website Portofolio Pribadi</h3><p>Halaman yang sedang kamu lihat sekarang.</p></button>
+  <button class="card proj tilt rv" style="--d:.12s" data-t="[Judul karya/tugas sekolahmu]" data-d="[Tulis deskripsi singkat karyamu di sini.]" data-g="[Tulis tujuan pembuatan karya.]" data-a="[Aplikasi/teknologi yang dipakai]"><div class="ph">🎨</div><h3>[Karya kedua]</h3><p>Ganti dengan poster, presentasi, atau tugas sekolahmu.</p></button>
+ </div>
 </section>
-<dialog id="dlg"><h3 id="d1"></h3><p id="d2" style="margin-top:8px"></p><p style="margin-top:8px"><b>Tujuan:</b> <span id="d3"></span></p><p><b>Dibuat dengan:</b> <span id="d4"></span></p>
-  <button class="btn p" id="close">Tutup</button></dialog>
+<dialog id="dlg"><h3 id="d1"></h3><p id="d2" style="margin-top:8px"></p><p style="margin-top:8px"><b>Tujuan:</b> <span id="d3"></span></p><p><b>Dibuat dengan:</b> <span id="d4"></span></p><button class="btn p" id="close">Tutup</button></dialog>
 
-<!-- 5. ACHIEVEMENTS -->
 <section id="achievements">
-  <h2>My Achievements</h2><p class="sub">Prestasi saya</p>
-  <div class="grid">
-    <div class="card"><div class="hob e">🏆</div><h3>[Prestasi / juara]</h3><p>Isi dengan lomba, ranking, atau sertifikat yang benar-benar kamu peroleh.</p></div>
-    <div class="card"><div class="hob e">🌱</div><h3>Proses belajar</h3><p>Terus belajar dan meningkatkan nilai di kelas 9, serta berani mencoba hal baru seperti membuat website ini.</p></div>
-    <div class="card"><div class="hob e">⚽</div><h3>Aktif berolahraga</h3><p>Rutin bermain futsal untuk melatih kerja sama tim dan menjaga kesehatan.</p></div>
-  </div>
+ <h2>My Achievements</h2><p class="sub">Prestasi saya</p>
+ <div class="grid">
+  <div class="card hob tilt rv"><div class="e">🏆</div><h3>[Prestasi / juara]</h3><p>Isi dengan lomba, ranking, atau sertifikat yang benar-benar kamu peroleh.</p></div>
+  <div class="card hob tilt rv" style="--d:.12s"><div class="e">🌱</div><h3>Proses belajar</h3><p>Terus belajar dan meningkatkan nilai di kelas 9, serta berani mencoba hal baru seperti membuat website ini.</p></div>
+  <div class="card hob tilt rv" style="--d:.24s"><div class="e">⚽</div><h3>Aktif berolahraga</h3><p>Rutin bermain futsal untuk melatih kerja sama tim dan menjaga kesehatan.</p></div>
+ </div>
 </section>
 
-<!-- 6. EDUCATION -->
 <section id="education">
-  <h2>My Education</h2><p class="sub">Pendidikan</p>
-  <div class="card"><ul class="info">
-    <li><b>Sekarang:</b> SMP [nama sekolahmu], kelas 9 Ali</li>
-    <li><b>Sebelumnya:</b> SD [nama sekolah dasarmu]</li>
-    <li><b>Pelajaran favorit:</b> [isi mata pelajaran yang paling kamu suka]</li>
-    <li><b>Pengalaman berkesan:</b> [ceritakan satu pengalaman belajar yang paling berkesan]</li>
-  </ul></div>
+ <h2>My Education</h2><p class="sub">Pendidikan</p>
+ <div class="card rv"><ul class="info">
+  <li><b>Sekarang:</b> SMP [nama sekolahmu], kelas 9 Ali</li><li><b>Sebelumnya:</b> SD [nama sekolah dasarmu]</li>
+  <li><b>Pelajaran favorit:</b> [isi mata pelajaran yang paling kamu suka]</li><li><b>Pengalaman berkesan:</b> [ceritakan satu pengalaman belajar yang paling berkesan]</li></ul></div>
 </section>
 
-<!-- 7. HOBBIES -->
 <section id="hobbies">
-  <h2>My Hobbies</h2><p class="sub">Minat dan hobi</p>
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
-    <div class="card hob"><div class="e">🍜</div><h3>Makan</h3><p>Mencoba makanan enak.</p></div>
-    <div class="card hob"><div class="e">🎮</div><h3>Main Game</h3><p>Melatih strategi dan fokus.</p></div>
-    <div class="card hob"><div class="e">📚</div><h3>Baca Buku</h3><p>Menambah wawasan.</p></div>
-    <div class="card hob"><div class="e">🎬</div><h3>Nonton Film</h3><p>Hiburan dan inspirasi.</p></div>
-    <div class="card hob"><div class="e">⚽</div><h3>Futsal</h3><p>Sehat dan kompak.</p></div>
-    <div class="card hob"><div class="e">✏️</div><h3>Belajar</h3><p>Selalu ingin tahu.</p></div>
-  </div>
+ <h2>My Hobbies</h2><p class="sub">Minat dan hobi</p>
+ <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+  <div class="card hob tilt rv"><div class="e">🍜</div><h3>Makan</h3><p>Mencoba makanan enak.</p></div>
+  <div class="card hob tilt rv" style="--d:.08s"><div class="e">🎮</div><h3>Main Game</h3><p>Melatih strategi dan fokus.</p></div>
+  <div class="card hob tilt rv" style="--d:.16s"><div class="e">📚</div><h3>Baca Buku</h3><p>Menambah wawasan.</p></div>
+  <div class="card hob tilt rv" style="--d:.24s"><div class="e">🎬</div><h3>Nonton Film</h3><p>Hiburan dan inspirasi.</p></div>
+  <div class="card hob tilt rv" style="--d:.32s"><div class="e">⚽</div><h3>Futsal</h3><p>Sehat dan kompak.</p></div>
+  <div class="card hob tilt rv" style="--d:.4s"><div class="e">✏️</div><h3>Belajar</h3><p>Selalu ingin tahu.</p></div>
+ </div>
 </section>
 
-<!-- 8. GOALS -->
 <section id="goals">
-  <h2>My Goals</h2><p class="sub">Cita-cita dan target masa depan</p>
-  <div class="grid">
-    <div class="card"><h3>🎯 Cita-cita</h3><p>[Isi cita-citamu, misalnya: menjadi ...]</p></div>
-    <div class="card"><h3>🏫 Target pendidikan</h3><p>Lulus SMP dengan nilai terbaik dan diterima di SMA pilihan.</p></div>
-    <div class="card"><h3>🚀 Ingin dikembangkan</h3><p>Kemampuan berpikir kritis, public speaking, dan membuat karya digital.</p></div>
-  </div>
+ <h2>My Goals</h2><p class="sub">Cita-cita dan target masa depan</p>
+ <div class="grid">
+  <div class="card tilt rv"><h3>🎯 Cita-cita</h3><p>[Isi cita-citamu, misalnya: menjadi ...]</p></div>
+  <div class="card tilt rv" style="--d:.12s"><h3>🏫 Target pendidikan</h3><p>Lulus SMP dengan nilai terbaik dan diterima di SMA pilihan.</p></div>
+  <div class="card tilt rv" style="--d:.24s"><h3>🚀 Ingin dikembangkan</h3><p>Kemampuan berpikir kritis, public speaking, dan membuat karya digital.</p></div>
+ </div>
 </section>
 
-<!-- 9. CONTACT -->
 <section id="contact">
-  <h2>Contact Me</h2><p class="sub">Hubungi saya</p>
-  <div class="card contact" style="display:grid;gap:12px">
-    <a class="c" href="mailto:shinwan.atha@smp.belajar.id">✉️ shinwan.atha@smp.belajar.id</a>
-    <a class="c" href="https://instagram.com/shnwn_ath" target="_blank" rel="noopener">📸 Instagram: @shnwn_ath</a>
-    <a class="c" href="https://www.tiktok.com/@gataulupa" target="_blank" rel="noopener">🎵 TikTok: @gataulupa</a>
-  </div>
+ <h2>Contact Me</h2><p class="sub">Hubungi saya</p>
+ <div class="card contact rv" style="display:grid;gap:6px">
+  <a class="c" href="mailto:shinwan.atha@smp.belajar.id">✉️ shinwan.atha@smp.belajar.id</a>
+  <a class="c" href="https://instagram.com/shnwn_ath" target="_blank" rel="noopener">📸 Instagram: @shnwn_ath</a>
+  <a class="c" href="https://www.tiktok.com/@gataulupa" target="_blank" rel="noopener">🎵 TikTok: @gataulupa</a>
+ </div>
 </section>
+</main>
 
-<!-- 10. FOOTER -->
-<footer>© 2026 Personal Portfolio | Created by Shinwan Athaa Kanz
-  <small>Kelas 9 Ali · Terus belajar, terus bertumbuh.</small></footer>
-
+<footer>© 2026 Personal Portfolio | Created by Shinwan Athaa Kanz<small>Kelas 9 Ali · Terus belajar, terus bertumbuh.</small></footer>
 <button id="top" aria-label="Kembali ke atas">↑</button>
 
 <script>
-// Loading screen: pensil menulis, gerak halus per frame
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Loading screen: pensil menulis
 (()=>{
-  const w=document.getElementById('welcome'),f=document.getElementById('lfill'),pc=document.getElementById('lpct'),
-        tx=document.getElementById('ldtxt'),wt=document.getElementById('wtext'),pen=document.getElementById('pen');
-  const msg=[[0,'Mengambil pensil…'],[30,'Menulis namaku…'],[60,'Merapikan hasil karya…'],[90,'Hampir siap, selamat datang!']];
-  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let ready=document.readyState==='complete',t0=0;const DUR=4200;
-  addEventListener('load',()=>ready=true);
-  const ease=x=>0.5-0.5*Math.cos(Math.PI*x);
-  function frame(now){
-    if(!t0)t0=now;
-    const el=now-t0;
-    let p=ease(Math.min(1,el/DUR))*100;
-    if(!ready&&p>92)p=92;
-    f.style.width=p+'%';
-    wt.style.clipPath='inset(-40% '+(100-p)+'% -40% 0)';
-    pc.textContent=Math.floor(p)+'%';
-    tx.textContent=msg.filter(m=>p>=m[0]).pop()[1];
-    const W=wt.offsetWidth,H=wt.offsetHeight;
-    // gerakan tangan menulis: ujung pensil menyentuh garis lalu terangkat (naik-turun),
-    // bergerak melingkar kecil, dan badan pensil miring bergoyang mengikuti tiap goresan
-    const ph=el*0.019, k=reduce?0:1;
-    const stroke=Math.abs(Math.sin(ph));
-    const wob=k*(-stroke*H*0.42+Math.sin(el*0.06)*2);
-    const sway=k*(Math.cos(ph*2)*6+Math.sin(el*0.011)*3);
-    const rot=-52+k*(Math.sin(ph)*11+Math.sin(el*0.007)*4);
-    pen.style.transform='translate('+(W*p/100-2.2+sway)+'px,'+(H*0.8-13+wob)+'px) rotate('+rot+'deg)';
-    if(p>=100){setTimeout(()=>w.classList.add('done'),600);return}
-    requestAnimationFrame(frame);
-  }
+ const w=document.getElementById('welcome'),f=document.getElementById('lfill'),pc=document.getElementById('lpct'),tx=document.getElementById('ldtxt'),wt=document.getElementById('wtext'),pen=document.getElementById('pen');
+ const msg=[[0,'Mengambil pensil…'],[30,'Menulis namaku…'],[60,'Merapikan hasil karya…'],[90,'Hampir siap, selamat datang!']];
+ let ready=document.readyState==='complete',t0=0;const DUR=4200;addEventListener('load',()=>ready=true);
+ const ease=x=>.5-.5*Math.cos(Math.PI*x);
+ function frame(now){
+  if(!t0)t0=now;const el=now-t0;let p=ease(Math.min(1,el/DUR))*100;if(!ready&&p>92)p=92;
+  f.style.width=p+'%';wt.style.clipPath='inset(-40% '+(100-p)+'% -40% 0)';pc.textContent=Math.floor(p)+'%';
+  tx.textContent=msg.filter(m=>p>=m[0]).pop()[1];
+  const W=wt.offsetWidth,H=wt.offsetHeight,ph=el*.019,k=reduce?0:1,stroke=Math.abs(Math.sin(ph));
+  const wob=k*(-stroke*H*.42+Math.sin(el*.06)*2),sway=k*(Math.cos(ph*2)*6+Math.sin(el*.011)*3),rot=-52+k*(Math.sin(ph)*11+Math.sin(el*.007)*4);
+  pen.style.transform='translate('+(W*p/100-2.2+sway)+'px,'+(H*.8-13+wob)+'px) rotate('+rot+'deg)';
+  if(p>=100){setTimeout(()=>{w.classList.add('done');intro()},600);return}
   requestAnimationFrame(frame);
+ }
+ requestAnimationFrame(frame);
 })();
-// Dark mode
+// Intro hero: huruf nama muncul satu per satu + teks mengetik
+let started=false;
+function intro(){
+ if(started)return;started=true;
+ const h=document.getElementById('h1');
+ [...'Shinwan Athaa Kanz'].forEach((c,i)=>{const s=document.createElement('span');s.textContent=c===' '?'\u00A0':c;s.style.animationDelay=(i*.05)+'s';h.appendChild(s)});
+ const words=['pelajar yang rajin','pemain futsal','pencinta film & game','pembelajar seumur hidup'],el=document.getElementById('typed');
+ if(reduce){el.textContent=words[0];return}
+ let wi=0,ci=0,del=false;
+ (function type(){
+  const wd=words[wi];ci+=del?-1:1;el.textContent=wd.slice(0,ci);
+  let t=del?35:80;
+  if(!del&&ci===wd.length){del=true;t=1400}else if(del&&ci===0){del=false;wi=(wi+1)%words.length;t=350}
+  setTimeout(type,t);
+ })();
+}
+setTimeout(intro,13000);
+// Tema
 const root=document.documentElement,tb=document.getElementById('theme');
-tb.onclick=()=>{const d=root.dataset.theme==='dark';root.dataset.theme=d?'light':'dark';tb.textContent=d?'🌙 Gelap':'☀️ Terang'};
-// Progress bar saat terlihat
-const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.style.width=x.target.dataset.v+'%';io.unobserve(x.target)}}),{threshold:.4});
-document.querySelectorAll('.fill').forEach(f=>io.observe(f));
-// Galeri proyek
-const dlg=document.getElementById('dlg');
-document.querySelectorAll('.proj').forEach(p=>p.onclick=()=>{
-  d1.textContent=p.dataset.t;d2.textContent=p.dataset.d;d3.textContent=p.dataset.g;d4.textContent=p.dataset.a;dlg.showModal()});
-document.getElementById('close').onclick=()=>dlg.close();
-// Back to top
-const top_=document.getElementById('top');
-addEventListener('scroll',()=>top_.classList.toggle('show',scrollY>500));
+tb.onclick=()=>{const d=getComputedStyle(root).getPropertyValue('--bg').trim()==='#1D2233';root.dataset.theme=d?'light':'dark';tb.textContent=d?'🌙 Gelap':'☀️ Terang'};
+if(getComputedStyle(root).getPropertyValue('--bg').trim()==='#1D2233')tb.textContent='☀️ Terang';
+// Scroll reveal, skill bar, count-up
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(!x.isIntersecting)return;const t=x.target;io.unobserve(t);
+ if(t.classList.contains('fill'))t.style.width=t.dataset.v+'%';
+ else if(t.dataset.n){const n=+t.dataset.n,s=t.dataset.s||'';let st=null;(function c(ts){if(!st)st=ts;const r=Math.min(1,(ts-st)/1200);t.textContent=Math.round(n*(1-Math.pow(1-r,3)))+s;if(r<1)requestAnimationFrame(c)})(performance.now())}
+ else t.classList.add('in')}),{threshold:.25});
+document.querySelectorAll('.rv,.fill,h2,[data-n]').forEach(e=>io.observe(e));
+// Progress bar, nav aktif, tombol atas
+const prog=document.getElementById('prog'),top_=document.getElementById('top'),links=[...document.querySelectorAll('nav a.l')],secs=[...document.querySelectorAll('section')];
+addEventListener('scroll',()=>{
+ prog.style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+'%';
+ top_.classList.toggle('show',scrollY>500);
+ let cur=secs[0].id;secs.forEach(s=>{if(s.getBoundingClientRect().top<innerHeight*.4)cur=s.id});
+ links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur));
+},{passive:true});
 top_.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+// Cahaya mengikuti kursor + kartu miring 3D
+const glow=document.getElementById('glow');
+if(!reduce){
+ addEventListener('pointermove',e=>{glow.style.opacity=1;glow.style.transform='translate('+(e.clientX-210)+'px,'+(e.clientY-210)+'px)'});
+ document.querySelectorAll('.tilt').forEach(c=>{
+  c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+   c.style.transition='border-color .25s,box-shadow .25s';c.style.transform='perspective(700px) rotateX('+(-y*9)+'deg) rotateY('+(x*9)+'deg) translateY(-4px)'});
+  c.addEventListener('pointerleave',()=>{c.style.transition='';c.style.transform=''});
+ });
+}
+// Konfeti saat avatar diklik
+document.getElementById('av').onclick=e=>{
+ if(reduce)return;const r=e.currentTarget.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,cols=['#F6C026','#FF8A5B','#5BB8FF','#7ED957','#E9A3A3'];
+ for(let i=0;i<40;i++){const d=document.createElement('div');d.className='cf';d.style.background=cols[i%5];d.style.left=cx+'px';d.style.top=cy+'px';document.body.appendChild(d);
+  const a=Math.random()*Math.PI*2,v=120+Math.random()*180;
+  d.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:'translate('+Math.cos(a)*v+'px,'+(Math.sin(a)*v+160)+'px) rotate('+(Math.random()*720)+'deg)',opacity:0}],{duration:1100+Math.random()*600,easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=()=>d.remove()}
+};
+// Detail proyek
+const dlg=document.getElementById('dlg');
+document.querySelectorAll('.proj').forEach(p=>p.onclick=()=>{d1.textContent=p.dataset.t;d2.textContent=p.dataset.d;d3.textContent=p.dataset.g;d4.textContent=p.dataset.a;dlg.showModal()});
+document.getElementById('close').onclick=()=>dlg.close();
 </script>
 </body>
 </html>
