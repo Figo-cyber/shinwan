@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Portofolio Shinwan Athaa Kanz</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,800;1,700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,800;1,700&family=Nunito:wght@400;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FFFEF9;--surface:#FFFFFF;--soft:#FFF6D6;--ink:#2B2A33;--muted:#5E5B6B;--yellow:#F6C026;--yellow-d:#B98300;--line:#F0E2A8;--navy:#26324F;--glow:rgba(246,192,38,.28)}
+:root{--bg:#FFFEF9;--surface:#FFFFFF;--soft:#FFF6D6;--ink:#2B2A33;--muted:#5E5B6B;--yellow:#F6C026;--yellow-d:#B98300;--line:#F0E2A8;--navy:#26324F;--glow:rgba(246,192,38,.28);--pink:#FF9EBB;--blue:#8EC5FF;--mint:#8CEBC0;--orange:#FF8A5B}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1D2233;--surface:#262C42;--soft:#2F3652;--ink:#F4F1E4;--muted:#B9B7C7;--yellow:#F8CC4A;--yellow-d:#F8CC4A;--line:#3C4466;--navy:#F8CC4A;--glow:rgba(248,204,74,.18)}}
 :root[data-theme="dark"]{--bg:#1D2233;--surface:#262C42;--soft:#2F3652;--ink:#F4F1E4;--muted:#B9B7C7;--yellow:#F8CC4A;--yellow-d:#F8CC4A;--line:#3C4466;--navy:#F8CC4A;--glow:rgba(248,204,74,.18)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -16,86 +16,117 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--
  background-image:linear-gradient(var(--line) 1px,transparent 1px);background-size:100% 34px;background-attachment:fixed}
 h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.2;color:var(--navy)}
 :focus-visible{outline:3px solid var(--yellow-d);outline-offset:3px}
-#prog{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--yellow),#FF8A5B,var(--yellow));z-index:50}
-#glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:0;left:0;top:0;
- background:radial-gradient(circle,var(--glow),transparent 65%);transform:translate(-50%,-50%);opacity:0;transition:opacity .4s}
-nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);
- border-bottom:2px solid var(--yellow);display:flex;align-items:center;gap:6px;padding:10px 4vw;flex-wrap:wrap}
+#prog{position:fixed;top:0;left:0;height:5px;width:0;background:linear-gradient(90deg,var(--yellow),var(--orange),var(--pink),var(--blue),var(--mint));z-index:50}
+#glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:0;left:0;top:0;background:radial-gradient(circle,var(--glow),transparent 65%);transform:translate(-50%,-50%);opacity:0;transition:opacity .4s}
+#doodles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+#doodles span{position:absolute;opacity:.22;animation:dd linear infinite}
+@keyframes dd{from{transform:translateY(0) rotate(0)}to{transform:translateY(-115vh) rotate(360deg)}}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:3px solid var(--yellow);display:flex;align-items:center;gap:6px;padding:10px 4vw;flex-wrap:wrap}
 .logo{font-family:'Fraunces',serif;font-weight:800;color:var(--navy);margin-right:auto;text-decoration:none}
+.logo em{display:inline-block;font-style:normal;animation:spin 6s linear infinite}
 nav a.l{font-weight:700;font-size:.9rem;padding:4px 10px;border-radius:8px;text-decoration:none;color:var(--muted);transition:.2s}
-nav a.l:hover,nav a.l.on{background:var(--yellow);color:#2B2A33;transform:translateY(-2px)}
+nav a.l:hover,nav a.l.on{background:var(--yellow);color:#2B2A33;transform:translateY(-2px) rotate(-2deg)}
 #theme{border:2px solid var(--yellow);background:var(--soft);color:var(--ink);border-radius:999px;padding:4px 12px;font:inherit;cursor:pointer;transition:transform .3s}
 #theme:hover{transform:rotate(-6deg) scale(1.06)}
 main,footer{position:relative;z-index:1}
 section{max-width:1000px;margin:0 auto;padding:72px 5vw 8px}
-h2{font-size:clamp(1.6rem,4vw,2.3rem);margin-bottom:6px;display:inline-block;
- background:linear-gradient(var(--yellow),var(--yellow)) 0 92%/0% 30% no-repeat;transition:background-size .9s .2s}
-h2.in{background-size:100% 30%}
-.sub{color:var(--muted);margin-bottom:24px}
-.card{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:22px;transition:transform .25s,border-color .25s,box-shadow .25s;transform-style:preserve-3d}
-.card:hover{border-color:var(--yellow);box-shadow:0 14px 30px -12px var(--glow),0 6px 0 var(--yellow)}
-.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+h2{font-size:clamp(1.8rem,4.6vw,2.6rem);margin-bottom:6px;display:inline-block;background:linear-gradient(var(--yellow),var(--yellow)) 0 92%/0% 34% no-repeat;transition:background-size .9s .2s}
+h2.in{background-size:100% 34%}
+.sub{font-family:'Caveat',cursive;font-size:1.5rem;color:var(--yellow-d);margin-bottom:24px;transform:rotate(-1.5deg);display:block}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:22px;position:relative;transition:transform .25s,border-color .25s,box-shadow .25s;transform-style:preserve-3d}
+.card::before{content:"";position:absolute;left:18px;right:18px;top:-2px;height:6px;border-radius:0 0 8px 8px;background:var(--cc,var(--yellow))}
+.card:hover{border-color:var(--yellow);box-shadow:0 14px 30px -12px var(--glow),0 6px 0 var(--cc,var(--yellow))}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .rv{opacity:0;transform:translateY(34px) scale(.97);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
 .rv.in{opacity:1;transform:none}
 /* hero */
-#home{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;min-height:86vh;padding-top:48px;position:relative}
-.hero-tag{display:inline-block;background:var(--soft);border:2px solid var(--yellow);border-radius:999px;padding:2px 14px;font-weight:700;font-size:.9rem}
-#home h1{font-size:clamp(2.3rem,6.4vw,4rem);margin:14px 0 6px}
-#home h1 span{display:inline-block;opacity:0;transform:translateY(40px) rotate(6deg);animation:pop .7s cubic-bezier(.3,1.5,.5,1) forwards}
+#home{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;min-height:90vh;padding-top:48px;position:relative}
+.hero-tag{display:inline-block;background:var(--soft);border:2px solid var(--yellow);border-radius:999px;padding:2px 14px;font-weight:700;font-size:.9rem;animation:wob 3s ease-in-out infinite}
+@keyframes wob{50%{transform:rotate(-3deg) scale(1.05)}}
+.wave{display:inline-block;transform-origin:70% 70%;animation:wave 2s infinite}
+@keyframes wave{0%,60%,100%{transform:rotate(0)}10%,30%{transform:rotate(16deg)}20%,40%{transform:rotate(-8deg)}50%{transform:rotate(10deg)}}
+#home h1{font-size:clamp(2.2rem,6.2vw,4.3rem);margin:14px 0 6px;display:flex;flex-wrap:wrap;column-gap:.28em;line-height:1.1}.wd{display:inline-block;white-space:nowrap}
+#home h1 .ch{display:inline-block;opacity:0;transform:translateY(40px) rotate(6deg);animation:pop .7s cubic-bezier(.3,1.5,.5,1) forwards;background:linear-gradient(90deg,var(--navy),var(--orange),var(--yellow-d),var(--navy));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+#home h1.go .ch{animation:pop .7s cubic-bezier(.3,1.5,.5,1) forwards,gr 5s linear infinite}
+@keyframes gr{to{background-position:-300% 0}}
 @keyframes pop{to{opacity:1;transform:none}}
-.role{font-weight:700;font-size:1.15rem;min-height:1.8em}
-.role b{color:var(--yellow-d)}.role i{display:inline-block;width:2px;height:1.1em;background:var(--yellow-d);vertical-align:-3px;margin-left:2px;animation:bl 1s steps(1) infinite}
+.role{font-weight:800;font-size:1.2rem;min-height:1.8em}
+.role b{color:#2B2A33;background:var(--yellow);padding:0 10px;border-radius:8px}.role i{display:inline-block;width:2px;height:1.1em;background:var(--yellow-d);vertical-align:-3px;margin-left:2px;animation:bl 1s steps(1) infinite}
 @keyframes bl{50%{opacity:0}}
-.quote{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--yellow-d);margin:10px 0}
+.quote{font-family:'Caveat',cursive;font-size:1.7rem;line-height:1.2;color:var(--yellow-d);margin:12px 0}
 .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-.btn{display:inline-block;padding:11px 22px;border-radius:12px;font-weight:700;text-decoration:none;border:2px solid var(--yellow);transition:transform .15s,box-shadow .15s;cursor:pointer;font-family:inherit;font-size:1rem}
+.btn{display:inline-block;padding:11px 22px;border-radius:12px;font-weight:800;text-decoration:none;border:2px solid var(--yellow);transition:transform .15s,box-shadow .15s;cursor:pointer;font-family:inherit;font-size:1rem}
 .btn.p{background:var(--yellow);color:#2B2A33;box-shadow:0 4px 0 var(--yellow-d);position:relative;overflow:hidden}
 .btn.p::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-20deg);animation:shine 3.2s 2s infinite}
 @keyframes shine{to{left:150%}}
 .btn.s{background:var(--surface);color:var(--ink)}
-.btn:hover{transform:translateY(-3px)}.btn:active{transform:translateY(2px)}
+.btn:hover{transform:translateY(-3px) rotate(-1deg)}.btn:active{transform:translateY(2px)}
 .avatar-w{position:relative;max-width:330px;margin:auto;width:100%}
-.avatar{aspect-ratio:1;border-radius:50%;background:var(--yellow);border:6px solid var(--surface);box-shadow:0 0 0 4px var(--yellow-d);
- display:grid;place-items:center;position:relative;animation:float 4s ease-in-out infinite;cursor:pointer;overflow:hidden}
-.avatar::before{content:"";position:absolute;inset:-22px;border-radius:50%;border:3px dashed var(--yellow-d);animation:spin 22s linear infinite;opacity:.6}
+.avatar{aspect-ratio:1;border-radius:50%;background:var(--yellow);border:6px solid var(--surface);box-shadow:0 0 0 4px var(--yellow-d),0 0 60px var(--glow);display:grid;place-items:center;position:relative;animation:float 4s ease-in-out infinite;cursor:pointer;overflow:hidden}
+.avatar-w::before{content:"";position:absolute;inset:-26px;border-radius:50%;border:3px dashed var(--yellow-d);animation:spin 22s linear infinite;opacity:.6}
+.avatar-w::after{content:"";position:absolute;inset:-48px;border-radius:50%;border:2px dotted var(--pink);animation:spin 34s linear infinite reverse;opacity:.8}
+.orbit{position:absolute;inset:-26px;animation:spin 14s linear infinite;pointer-events:none}
+.orbit b{position:absolute;font-size:1.7rem;animation:spin 14s linear infinite reverse}
+.orbit b:nth-child(1){top:-14px;left:calc(50% - 14px)}.orbit b:nth-child(2){bottom:8%;right:2%}.orbit b:nth-child(3){bottom:8%;left:2%}
 .avatar span{font-family:'Fraunces',serif;font-weight:800;font-size:5rem;color:#2B2A33}
 .avatar img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:50%}
-.chip{position:absolute;background:var(--surface);border:2px solid var(--line);border-radius:12px;padding:2px 10px;font-weight:700;font-size:.85rem;animation:float 3s ease-in-out infinite}
+.chip{position:absolute;background:var(--surface);border:2px solid var(--yellow);border-radius:12px;padding:2px 10px;font-weight:800;font-size:.85rem;animation:float 3s ease-in-out infinite;box-shadow:3px 3px 0 var(--yellow);z-index:2}
 @keyframes float{50%{transform:translateY(-12px)}}
 @keyframes spin{to{transform:rotate(360deg)}}
-.fl{position:absolute;font-size:1.8rem;opacity:.55;pointer-events:none;animation:drift 7s ease-in-out infinite}
+.fl{position:absolute;font-size:1.8rem;opacity:.7;pointer-events:none;animation:drift 7s ease-in-out infinite}
 @keyframes drift{50%{transform:translate(14px,-26px) rotate(18deg)}}
+.hint{font-family:'Caveat',cursive;font-size:1.3rem;text-align:center;margin-top:14px;color:var(--muted)}
+/* marquee */
+.mq{margin-top:70px;background:var(--yellow);color:#2B2A33;border-block:3px solid var(--navy);overflow:hidden;transform:rotate(-1.5deg);position:relative;z-index:2}
+.mq div{display:flex;width:max-content;animation:mq 26s linear infinite;padding:10px 0;font:800 1.25rem 'Fraunces',serif}
+.mq span{padding:0 20px;white-space:nowrap}.mq:hover div{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:8px}
-.stat{text-align:center;background:var(--soft);border:2px solid var(--yellow);border-radius:16px;padding:16px}
-.stat strong{font-family:'Fraunces',serif;font-size:2.2rem;color:var(--navy);display:block}
+.stat{text-align:center;border:2px solid var(--navy);border-radius:18px;padding:16px;color:#2B2A33;font-weight:800;box-shadow:4px 4px 0 var(--navy);transition:transform .2s}
+.stat:hover{transform:rotate(-3deg) scale(1.06)}
+.stat:nth-child(1){background:var(--yellow)}.stat:nth-child(2){background:var(--pink)}.stat:nth-child(3){background:var(--blue)}.stat:nth-child(4){background:var(--mint)}
+.stat strong{font-family:'Fraunces',serif;font-size:2.5rem;color:#2B2A33;display:block;line-height:1.1}
 .info{list-style:none;display:grid;gap:6px;margin-top:10px}.info b{color:var(--navy)}
-.bar{margin:14px 0}.bar .t{display:flex;justify-content:space-between;font-weight:700;font-size:.95rem}
-.track{height:14px;background:var(--soft);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
-.fill{height:100%;background:linear-gradient(90deg,var(--yellow),#FFDF73,var(--yellow));background-size:200% 100%;border-radius:99px;width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1);animation:slide 3s linear infinite}
-@keyframes slide{to{background-position:-200% 0}}
+.bar{margin:16px 0}.bar .t{display:flex;justify-content:space-between;font-weight:700;font-size:.95rem;gap:10px}
+.track{height:18px;background:var(--soft);border-radius:99px;border:2px solid var(--line)}
+.fill{height:100%;background:repeating-linear-gradient(-45deg,var(--yellow) 0 10px,#FFDF73 10px 20px);background-size:200% 100%;border-radius:99px;width:0;position:relative;transition:width 1.4s cubic-bezier(.2,.8,.2,1);animation:slide 2s linear infinite}
+.fill::after{content:"";position:absolute;right:-11px;top:-6px;width:22px;height:22px;background:var(--orange);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);animation:spin 5s linear infinite}
+@keyframes slide{to{background-position:-40px 0}}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .tag{background:var(--soft);border:1.5px solid var(--yellow);border-radius:999px;padding:2px 12px;font-size:.85rem;font-weight:700;transition:.2s}
 .tag:hover{background:var(--yellow);color:#2B2A33;transform:translateY(-3px) rotate(-3deg)}
-.hob{text-align:center}.hob .e{font-size:2.4rem;display:inline-block;transition:transform .3s}
-.hob:hover .e{transform:scale(1.35) rotate(-12deg)}
+.hob{text-align:center}.hob .e{font-size:2.6rem;display:inline-block;transition:transform .3s}
+.hob:hover .e{transform:scale(1.4) rotate(-12deg)}
+.hob.c1{--cc:var(--yellow)}.hob.c2{--cc:var(--pink)}.hob.c3{--cc:var(--blue)}.hob.c4{--cc:var(--mint)}
+.hob.c1:hover{background:#FFF1B8;color:#2B2A33}.hob.c2:hover{background:#FFE0EA;color:#2B2A33}.hob.c3:hover{background:#DCEEFF;color:#2B2A33}.hob.c4:hover{background:#D6F8E8;color:#2B2A33}
+.hob:hover h3{color:#2B2A33}
 /* galeri */
-.galeri{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.galeri figure{background:var(--surface);border:2px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
-.galeri figure:hover{border-color:var(--yellow);box-shadow:0 14px 30px -12px var(--glow),0 6px 0 var(--yellow);transform:translateY(-4px)}
-.galeri img{width:100%;height:240px;object-fit:cover;display:block}
-.galeri figcaption{padding:12px 16px;font-weight:700;text-align:center;color:var(--navy);background:var(--soft)}
-.contact a.c{display:flex;gap:12px;align-items:center;text-decoration:none;font-weight:700;color:var(--ink);padding:8px 10px;border-radius:10px;transition:.2s}
-.contact a.c:hover{background:var(--soft);transform:translateX(8px);color:var(--yellow-d)}
-footer{margin-top:72px;background:var(--yellow);color:#2B2A33;text-align:center;padding:26px 5vw calc(26px + env(safe-area-inset-bottom,0px));font-weight:700}
-footer small{display:block;font-weight:400}
-#top{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:46px;height:46px;border-radius:50%;border:2px solid var(--yellow-d);background:var(--yellow);
- color:#2B2A33;font-size:1.3rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:30}
-#top.show{opacity:1;pointer-events:auto}#top:hover{transform:translateY(-4px)}
+.galeri{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));padding:8px}
+.galeri figure{background:#fff;border:2px solid var(--line);padding:12px 12px 0;border-radius:6px;position:relative;box-shadow:0 10px 24px -10px rgba(0,0,0,.35);transform:rotate(-2.5deg);transition:transform .3s}
+.galeri figure:nth-child(even){transform:rotate(2.5deg)}.galeri figure:hover{transform:rotate(0) scale(1.04)}
+.galeri figure::before{content:"";position:absolute;top:-12px;left:50%;width:90px;height:26px;margin-left:-45px;background:rgba(246,192,38,.7);transform:rotate(-4deg);border:1px dashed var(--yellow-d)}
+.galeri img{width:100%;height:240px;object-fit:cover;display:block;background:var(--soft)}
+.galeri figcaption{padding:10px 4px;font:700 1.5rem 'Caveat',cursive;text-align:center;color:#26324F}
+/* timeline */
+.tl{position:relative;padding-left:36px;display:grid;gap:18px;list-style:none}
+.tl::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:4px;border-radius:4px;background:repeating-linear-gradient(var(--yellow) 0 8px,transparent 8px 14px)}
+.tl li{position:relative}.tl li::before{content:"";position:absolute;left:-34px;top:5px;width:20px;height:20px;border-radius:50%;background:var(--yellow);border:3px solid var(--navy);animation:pl 2.4s infinite}
+@keyframes pl{50%{box-shadow:0 0 0 7px var(--glow)}}
+.tl b{display:block;color:var(--navy);font-family:'Fraunces',serif}
+.contact{display:grid;gap:12px}
+.contact a.c{display:flex;gap:12px;align-items:center;text-decoration:none;font-weight:800;color:#2B2A33;padding:12px 16px;border-radius:14px;border:2px solid var(--navy);box-shadow:4px 4px 0 var(--navy);transition:transform .15s,box-shadow .15s;overflow-wrap:anywhere}
+.contact a.c:nth-child(1){background:var(--yellow)}.contact a.c:nth-child(2){background:var(--pink)}.contact a.c:nth-child(3){background:var(--blue)}
+.contact a.c:hover{transform:translate(-3px,-3px) rotate(-.8deg);box-shadow:7px 7px 0 var(--navy)}
+footer{margin-top:84px;background:var(--yellow);color:#2B2A33;text-align:center;padding:26px 5vw calc(26px + env(safe-area-inset-bottom,0px));font-weight:700;border-top:4px solid var(--navy)}
+footer small{display:block;font:700 1.4rem 'Caveat',cursive}
+#top{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:50px;height:50px;border-radius:50%;border:2px solid var(--navy);background:var(--yellow);color:#2B2A33;font-size:1.4rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:30;box-shadow:3px 3px 0 var(--navy)}
+#top.show{opacity:1;pointer-events:auto;animation:float 2.5s ease-in-out infinite}
 .cf{position:fixed;width:10px;height:14px;z-index:90;pointer-events:none;border-radius:2px}
+.sp{position:fixed;z-index:80;pointer-events:none;font-size:14px;animation:sp .8s forwards}
+@keyframes sp{to{opacity:0;transform:translateY(24px) scale(.2) rotate(120deg)}}
 /* welcome */
-#welcome{position:fixed;inset:0;z-index:99;background:#FFFBEF;display:grid;place-items:center;text-align:center;color:#3A4666;
- background-image:linear-gradient(#F6EDCB 1px,transparent 1px);background-size:100% 36px;animation:out .6s 12s forwards;transition:opacity .8s ease,visibility .8s}
+#welcome{position:fixed;inset:0;z-index:99;background:#FFFBEF;display:grid;place-items:center;text-align:center;color:#3A4666;background-image:linear-gradient(#F6EDCB 1px,transparent 1px);background-size:100% 36px;animation:out .6s 12s forwards;transition:opacity .8s ease,visibility .8s}
 #welcome.done{opacity:0;visibility:hidden}
 .ld{width:min(92vw,460px);padding:0 20px}
 .wrap{display:inline-block;position:relative;max-width:100%;margin-top:80px}
@@ -107,52 +138,131 @@ footer small{display:block;font-weight:400}
 #ldtxt{margin:18px 0 2px;font-weight:600;color:#7A7787;min-height:1.7em}
 #lpct{display:block;font-family:'Fraunces',serif;font-weight:600;color:#B58A1E}
 @keyframes out{to{opacity:0;visibility:hidden}}
-@media(max-width:720px){#home{grid-template-columns:1fr;text-align:center;min-height:auto}.btns{justify-content:center}.avatar-w{max-width:230px;order:-1}}
+@media(max-width:720px){#home{grid-template-columns:1fr;text-align:center;min-height:auto}.btns{justify-content:center}.avatar-w{max-width:230px;order:-1}.tl{text-align:left}}
 @media(hover:none){#glow{display:none}}
-@media(prefers-reduced-motion:reduce){.pen,.avatar,.avatar::before,.chip,.fl,.fill,.btn.p::after{animation:none!important}.rv{opacity:1;transform:none;transition:none}#home h1 span{animation:none;opacity:1;transform:none}}
+.wf span{position:absolute;font-size:2rem;opacity:.85;animation:wfl 5s ease-in-out infinite}
+@keyframes wfl{50%{transform:translateY(-22px) rotate(14deg) scale(1.15)}}
+.wh{font:700 1.8rem/1.2 'Caveat',cursive;color:#B58A1E;animation:float 2s ease-in-out infinite}
+.wrap{margin-top:56px}
+.lt{position:relative;margin-top:10px}.lt .ltrack{margin-top:0;height:14px;border:2px solid #3A4666;background:#fff}
+#ball{position:absolute;top:50%;left:0;font-size:1.7rem;line-height:1;filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
+#lfill{background:repeating-linear-gradient(-45deg,#F6C026 0 10px,#FFDF73 10px 20px)}
+#ldtxt{font-size:1.1rem;font-weight:800}#lpct{font-size:2.2rem}
+#tr{position:fixed;inset:0;z-index:95;visibility:hidden;pointer-events:none;transition:visibility 0s .7s}
+#tr.on{visibility:visible;pointer-events:auto;transition:none}
+#tr .p{position:absolute;top:0;bottom:0;width:51%;transition:transform .5s cubic-bezier(.7,0,.3,1)}
+#tr .p1{left:0;transform:translateX(-101%);background:repeating-linear-gradient(-45deg,#F6C026 0 26px,#FFD54D 26px 52px)}
+#tr .p2{right:0;transform:translateX(101%);background:repeating-linear-gradient(45deg,#26324F 0 26px,#2F3D61 26px 52px)}
+#tr.on .p{transform:none}
+.tc{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6);opacity:0;transition:transform .35s,opacity .3s;text-align:center;background:#FFFBEF;color:#26324F;border:3px solid #26324F;border-radius:22px;padding:22px 30px;box-shadow:7px 7px 0 #26324F;width:min(86vw,340px);z-index:2}
+#tr.on .tc{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-2deg);transition-delay:.3s}
+.te{display:block;font-size:3.4rem;animation:float 1s ease-in-out infinite}
+.tc b{font:800 1.3rem 'Fraunces',serif}
+.tb{height:14px;border:2px solid #26324F;border-radius:99px;margin-top:12px;overflow:hidden;background:#fff}
+.tb u{display:block;height:100%;width:0;background:repeating-linear-gradient(-45deg,#F6C026 0 10px,#FFDF73 10px 20px)}
+.mq.rev{background:var(--navy);color:var(--bg);transform:rotate(1.2deg);margin-top:70px}.mq.rev div{animation-direction:reverse}
+.hob .e{animation:bn 2.6s ease-in-out infinite}@keyframes bn{50%{transform:translateY(-8px) rotate(6deg)}}
+.hob:hover .e{animation:none;transform:scale(1.4) rotate(-12deg)}
+@media(max-width:720px){#home h1{justify-content:center}}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.14em;flex:none}
+.fl{color:var(--orange)}.fl:nth-child(3n+1){color:var(--yellow-d)}.fl:nth-child(3n+2){color:#5BB8FF}
+.chip .ic,.tag .ic,.card h3 .ic,.hero-tag .ic,.wave,.logo .ic{color:var(--orange)}
+.logo .ic{animation:spin 6s linear infinite}
+.orbit b{width:46px;height:46px;display:grid;place-items:center;background:var(--yellow);color:#2B2A33;border:2px solid var(--navy);border-radius:50%;font-size:1.4rem}
+.orbit b:nth-child(1){left:calc(50% - 23px);top:-23px}.orbit b:nth-child(2){right:-14px}.orbit b:nth-child(3){left:-14px}.orbit b:nth-child(4){top:42%;right:-30px;left:auto}
+.hob .e{color:var(--navy)}.hob:hover .e,.hob:hover h3 .ic{color:#2B2A33}
+.mq .ic{margin-right:.35em;vertical-align:-.12em}
+.contact a.c .ic{font-size:1.5rem}
+#top{display:grid;place-items:center}#top .ic{font-size:1.5rem}
+.te{color:#26324F}
+#ball{color:#26324F}#ball .ic{fill:#fff;font-size:1.9rem}
+.wf span{color:#E9A92B}.wf span:nth-child(3n+2){color:#26324F}.wf span:nth-child(3n){color:#FF8A5B}.wh .ic{color:#E9A92B}
+#doodles .g-ring{border:3px solid currentColor;border-radius:50%}#doodles .g-tri{background:currentColor;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.cf .ic{display:block}
+.bl{position:absolute;border-radius:50%;filter:blur(46px);opacity:.5;z-index:-1;animation:drift 9s ease-in-out infinite;pointer-events:none}
+.b1{width:280px;height:280px;background:var(--yellow);top:-30px;left:-70px}.b2{width:240px;height:240px;background:var(--pink);right:-50px;top:10%;animation-delay:-3s}.b3{width:260px;height:260px;background:var(--blue);bottom:-40px;left:34%;animation-delay:-6s}
+.sh{position:absolute;pointer-events:none;animation:drift 6s ease-in-out infinite}
+.s1{width:46px;height:46px;border:5px solid var(--pink);border-radius:50%;top:20%;left:44%}
+.s2{width:0;height:0;border-inline:16px solid transparent;border-bottom:28px solid var(--blue);top:62%;left:4%;animation:spin 12s linear infinite}
+.s3{width:34px;height:34px;background:var(--mint);border-radius:8px;bottom:14%;left:48%}
+.s4{width:60px;height:14px;background:repeating-linear-gradient(90deg,var(--orange) 0 8px,transparent 8px 14px);top:6%;right:30%}
+.scr{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);display:grid;justify-items:center;gap:2px;font:700 1.2rem 'Caveat',cursive;color:var(--muted)}
+.scr b{width:24px;height:38px;border:3px solid var(--navy);border-radius:14px;position:relative}
+.scr b::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:8px;margin-left:-2px;border-radius:4px;background:var(--orange);animation:wh 1.4s infinite}
+@keyframes wh{to{transform:translateY(14px);opacity:0}}
+.avatar{animation:float 4s ease-in-out infinite,ring 2.6s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 0 0 4px var(--yellow-d),0 0 0 4px var(--pink)}100%{box-shadow:0 0 0 4px var(--yellow-d),0 0 0 40px transparent}}
+.dv{height:22px;max-width:960px;width:88%;margin:34px auto -34px;position:relative;z-index:1;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='22'%3E%3Cpath d='M0 11Q10 0 20 11T40 11' fill='none' stroke='%23F6C026' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;animation:dvm 1.6s linear infinite}
+@keyframes dvm{to{background-position:40px 0}}
+.mq.out{background:transparent;color:var(--navy);transform:rotate(1deg);border-color:var(--yellow);margin-top:80px}.mq.out div{font-size:2.2rem;animation-duration:34s}.mq.out .ic{color:var(--orange)}
+.card.tilt::after{content:"";position:absolute;right:14px;top:14px;width:16px;height:16px;background:var(--cc,var(--yellow));clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);animation:spin 8s linear infinite}
+h2::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.35em;background:var(--orange);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);animation:spin 6s linear infinite;vertical-align:.05em}
+.rv:nth-child(odd){transform:translate(-42px,30px) scale(.97)}.rv:nth-child(even){transform:translate(42px,30px) scale(.97)}.rv.in{opacity:1;transform:none}
+@media(max-width:720px){.scr{display:none}}
+@media(prefers-reduced-motion:reduce){.bl,.sh,.scr b::after,.dv,.logo .ic,.card.tilt::after,h2::before,.avatar,.fill::after{animation:none!important}.rv:nth-child(odd),.rv:nth-child(even){transform:none}}
+@media(prefers-reduced-motion:reduce){.wf span,.wh,.te,.hob .e,.mq div{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.pen,.avatar,.avatar-w::before,.avatar-w::after,.orbit,.orbit b,.chip,.fl,.fill,.btn.p::after,.mq div,#doodles span,.wave,.hero-tag,.logo em,.tl li::before{animation:none!important}.rv{opacity:1;transform:none;transition:none}#home h1 .ch{animation:none;opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<div id="prog"></div><div id="glow"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.300 9.3l6.1-.7z"/></symbol><symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2c.8 5.2 2.8 7.2 8 8-5.2.8-7.2 2.8-8 8-.8-5.2-2.8-7.2-8-8 5.2-.8 7.2-2.8 8-8z"/></symbol><symbol id="i-pencil" viewBox="0 0 24 24"><path d="M4 20l1-4L16.5 4.5a2 2 0 013 3L8 19z"/><path d="M14 7l3 3"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z"/><path d="M4 19V5M9 7h6"/></symbol><symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.5 2.5-1.3 4H9.8l-1.3-4z"/><path d="M12 3v5M15.5 10.5L20 9M14.2 14.5l2.8 3.8M9.8 14.5L7 18.3M8.5 10.5L4 9"/></symbol><symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.7.6 1 1.3 1 2.1h5c0-.8.3-1.5 1-2.1A6 6 0 0012 3z"/></symbol><symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7 4h10v5a5 5 0 01-10 0zM7 6H4v2a3 3 0 003 3M17 6h3v2a3 3 0 01-3 3M12 14v4M8 21h8M9 18h6"/></symbol><symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-9"/><path d="M12 12C12 8 9 6 5 6c0 4 2 6 7 6zM12 14c0-3 2-5 6-5 0 3-2 5-6 5z"/></symbol><symbol id="i-gamepad" viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="11" rx="5"/><path d="M7 10.500v4M5 12.500h4M16 11.500h.01M18 13.500h.01"/></symbol><symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></symbol><symbol id="i-bowl" viewBox="0 0 24 24"><path d="M3 12h18a9 9 0 01-18 0z"/><path d="M8 4c0 2 2 2 2 4M13 4c0 2 2 2 2 4"/></symbol><symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.500V16c3 2.500 9 2.500 12 0v-4.500M22 9v6"/></symbol><symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.7-2 4.300-2 5 0M14 10h4M14 14h3"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H10l-5 4v-4H4z"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20S4 15 4 9.500A4.200 4.200 0 0112 7a4.200 4.200 0 018 2.500C20 15 12 20 12 20z"/></symbol><symbol id="i-brain" viewBox="0 0 24 24"><path d="M9 4a3 3 0 00-3 3 3 3 0 00-2 3 3 3 0 001.500 2.600A3 3 0 009 18a3 3 0 003-2V6a2 2 0 00-3-2zM15 4a3 3 0 013 3 3 3 0 012 3 3 3 0 01-1.500 2.600A3 3 0 0115 18a3 3 0 01-3-2"/></symbol><symbol id="i-people" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.500"/><path d="M2.500 19c0-3.500 2.500-5.500 5.500-5.500s5.500 2 5.500 5.500M14.500 14c3-.5 7 .5 7 5"/></symbol><symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.500"/><path d="M2 19h20"/></symbol><symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3M9 21h6"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.200"/></symbol><symbol id="i-school" viewBox="0 0 24 24"><path d="M3 21V9l9-5 9 5v12zM9 21v-6h6v6"/></symbol><symbol id="i-rocket" viewBox="0 0 24 24"><path d="M12 3c4 2 6 6 5 11l-3 3h-4l-3-3c-1-5 1-9 5-11z"/><circle cx="12" cy="10" r="1.600"/><path d="M8 15l-3 2 1 3 3-2M16 15l3 2-1 3-3-2"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.500"/></symbol><symbol id="i-note" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6.500" cy="18" r="2.500"/><circle cx="17.500" cy="16" r="2.500"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10M10 20v-6h4v6"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.500 3.500-7 8-7s8 2.500 8 7"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14A8 8 0 019.500 4 8 8 0 1020 14z"/></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></symbol></defs></svg>
+<div id="prog"></div><div id="glow"></div><div id="doodles" aria-hidden="true"></div>
 
 <div id="welcome" role="status" aria-live="polite">
- <div class="ld"><div class="wrap"><div class="wbox">
+ <div class="wf" aria-hidden="true"><span style="top:8%;left:7%"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><span style="top:16%;right:9%;animation-delay:-1s"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span><span style="top:46%;left:4%;animation-delay:-2s"><svg class="ic" aria-hidden="true"><use href="#i-ball"/></svg></span><span style="top:52%;right:6%;animation-delay:-3s"><svg class="ic" aria-hidden="true"><use href="#i-gamepad"/></svg></span><span style="bottom:12%;left:12%;animation-delay:-1.5s"><svg class="ic" aria-hidden="true"><use href="#i-film"/></svg></span><span style="bottom:9%;right:14%;animation-delay:-2.5s"><svg class="ic" aria-hidden="true"><use href="#i-pencil"/></svg></span><span style="top:30%;left:30%;animation-delay:-.5s"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg></span><span style="bottom:26%;right:32%;animation-delay:-3.5s"><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg></span><span style="top:4%;left:46%;animation-delay:-4s"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg></span><span style="bottom:4%;left:44%;animation-delay:-2.2s"><svg class="ic" aria-hidden="true"><use href="#i-rocket"/></svg></span><span style="top:70%;left:22%;animation-delay:-1.2s"><svg class="ic" aria-hidden="true"><use href="#i-bowl"/></svg></span><span style="top:24%;right:24%;animation-delay:-4.4s"><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg></span><span style="top:38%;left:12%;animation-delay:-3.2s"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg></span><span style="bottom:30%;right:10%;animation-delay:-.8s"><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg></span></div>
+ <div class="ld"><p class="wh"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg> Selamat datang di portofolioku!</p><div class="wrap"><div class="wbox">
   <div class="wtext" id="wtext">Shinwan Athaa Kanz</div>
   <svg class="pen" id="pen" width="84" height="20" viewBox="0 0 100 24" aria-hidden="true">
    <polygon points="2,12 22,5 22,19" fill="#EBD3A5"/><polygon points="2,12 9,9.4 9,14.6" fill="#3B3F54"/>
    <rect x="22" y="5" width="50" height="14" fill="#F2C94C"/><rect x="22" y="5" width="50" height="4" fill="#F8E08A"/><rect x="22" y="15" width="50" height="4" fill="#D9A920"/>
    <rect x="72" y="5" width="10" height="14" fill="#B8BCC8"/><rect x="75" y="5" width="1.2" height="14" fill="#8F94A3"/><rect x="78.5" y="5" width="1.2" height="14" fill="#8F94A3"/>
    <rect x="82" y="5" width="12" height="14" rx="5" fill="#E9A3A3"/>
-  </svg></div><div class="ltrack"><div id="lfill"></div></div></div>
+  </svg></div><div class="lt"><div class="ltrack"><div id="lfill"></div></div><span id="ball"><svg class="ic" aria-hidden="true"><use href="#i-ball"/></svg></span></div></div>
   <p id="ldtxt">Mengambil pensil…</p><b id="lpct">0%</b></div>
 </div>
 
+<div id="tr" aria-hidden="true"><i class="p p1"></i><i class="p p2"></i><div class="tc"><span class="te"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg></span><b id="tt">Menuju Home…</b><div class="tb"><u></u></div></div></div>
+
 <nav>
- <a class="logo" href="#home">Shinwan ✦</a>
+ <a class="logo" href="#home"><em><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg></em> Shinwan</a>
  <a class="l" href="#home">Home</a><a class="l" href="#about">About</a><a class="l" href="#skills">Skills</a><a class="l" href="#projects">Projects</a><a class="l" href="#achievements">Achievements</a><a class="l" href="#education">Education</a><a class="l" href="#hobbies">Hobbies</a><a class="l" href="#goals">Goals</a><a class="l" href="#contact">Contact</a>
- <button id="theme" aria-label="Ganti tema">🌙 Gelap</button>
+ <button id="theme" aria-label="Ganti tema"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg> Gelap</button>
 </nav>
 
 <main>
 <section id="home">
- <span class="fl" style="top:8%;left:2%">⭐</span><span class="fl" style="top:70%;left:46%;animation-delay:-2s">✏️</span><span class="fl" style="top:12%;right:4%;animation-delay:-4s">📚</span><span class="fl" style="bottom:6%;right:12%;animation-delay:-1s">⚽</span>
+ <i class="bl b1"></i><i class="bl b2"></i><i class="bl b3"></i><i class="sh s1"></i><i class="sh s2"></i><i class="sh s3"></i><i class="sh s4"></i>
+ <div class="scr" aria-hidden="true"><b></b><span>scroll</span></div>
+ <span class="fl" style="top:88%;left:20%;animation-delay:-5s"><svg class="ic" aria-hidden="true"><use href="#i-gamepad"/></svg></span><span class="fl" style="top:30%;right:46%;animation-delay:-6s"><svg class="ic" aria-hidden="true"><use href="#i-film"/></svg></span><span class="fl" style="top:2%;left:40%;animation-delay:-2.5s"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg></span>
+ <span class="fl" style="top:8%;left:2%"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><span class="fl" style="top:70%;left:46%;animation-delay:-2s"><svg class="ic" aria-hidden="true"><use href="#i-pencil"/></svg></span><span class="fl" style="top:12%;right:4%;animation-delay:-4s"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span><span class="fl" style="bottom:6%;right:12%;animation-delay:-1s"><svg class="ic" aria-hidden="true"><use href="#i-ball"/></svg></span><span class="fl" style="top:44%;left:-1%;animation-delay:-3s"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg></span>
  <div>
-  <span class="hero-tag">🎓 Siswa Kelas 9 Ali</span>
+  <span class="hero-tag"><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg> Siswa Kelas 9 Ali</span>
   <h1 id="h1" aria-label="Shinwan Athaa Kanz"></h1>
-  <p class="role">Aku seorang <b id="typed"></b><i></i></p>
+  <p class="role">Halo, aku seorang <b id="typed"></b><i></i> <span class="wave"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg></span></p>
   <p style="margin-top:8px">Halo! Aku <b>Shinwan</b>, siswa yang suka belajar, penasaran dengan banyak hal, dan senang menyelesaikan tantangan baru.</p>
   <p class="quote">“Rajin belajar hari ini, jadi cerdas untuk masa depan.”</p>
   <div class="btns"><a class="btn p" href="#about">Kenali Aku</a><a class="btn s" href="#projects">Lihat Karyaku</a></div>
  </div>
- <div class="avatar-w">
-  <div class="avatar" id="av" title="Klik aku!" aria-label="Foto profil Shinwan, klik untuk konfeti">
-   <img src="foto-shinwan.png" alt="Foto Shinwan">
-   <span>SA</span>
+ <div>
+  <div class="avatar-w">
+   <div class="orbit"><b><svg class="ic" aria-hidden="true"><use href="#i-ball"/></svg></b><b><svg class="ic" aria-hidden="true"><use href="#i-gamepad"/></svg></b><b><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></b><b><svg class="ic" aria-hidden="true"><use href="#i-pencil"/></svg></b></div>
+   <div class="avatar" id="av" title="Klik aku!" aria-label="Foto profil Shinwan, klik untuk konfeti">
+    <span>SA</span>
+    <img src="foto-shinwan.png" alt="Foto Shinwan" onerror="this.remove()">
+   </div>
+   <div class="chip" style="top:4%;right:-6%"><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg> Cerdas</div>
+   <div class="chip" style="bottom:8%;left:-8%;animation-delay:-1.5s"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Rajin</div>
+   <div class="chip" style="top:46%;right:-10%;animation-delay:-.8s"><svg class="ic" aria-hidden="true"><use href="#i-ball"/></svg> Futsal</div>
+   <div class="chip" style="top:-6%;left:2%;animation-delay:-2.2s"><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg> Top 5</div>
+   <div class="chip" style="bottom:-4%;right:6%;animation-delay:-.4s"><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg> OSN IPS</div>
   </div>
-  <div class="chip" style="top:4%;right:-4%">💡 Cerdas</div>
-  <div class="chip" style="bottom:8%;left:-6%;animation-delay:-1.5s">📖 Rajin</div>
+  <p class="hint">↑ klik fotoku, ada kejutan!</p>
  </div>
 </section>
+
+<div class="mq" aria-hidden="true"><div>
+ <span><svg class="ic" aria-hidden="true"><use href="#i-ball"/></svg> Futsal</span><span><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Belajar</span><span><svg class="ic" aria-hidden="true"><use href="#i-gamepad"/></svg> Game</span><span><svg class="ic" aria-hidden="true"><use href="#i-film"/></svg> Film</span><span><svg class="ic" aria-hidden="true"><use href="#i-bowl"/></svg> Makan</span><span><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg> OSN IPS</span><span><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg> Kelas 9 Ali</span><span><svg class="ic" aria-hidden="true"><use href="#i-ball"/></svg> Futsal</span><span><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Belajar</span><span><svg class="ic" aria-hidden="true"><use href="#i-gamepad"/></svg> Game</span><span><svg class="ic" aria-hidden="true"><use href="#i-film"/></svg> Film</span><span><svg class="ic" aria-hidden="true"><use href="#i-bowl"/></svg> Makan</span><span><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg> OSN IPS</span><span><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg> Kelas 9 Ali</span>
+</div></div>
 
 <section id="about">
  <h2>About Me</h2><p class="sub">Tentang saya</p>
@@ -162,102 +272,121 @@ footer small{display:block;font-weight:400}
   <div class="stat"><strong data-n="5">0</strong>Skill utama</div>
   <div class="stat"><strong data-n="100" data-s="%">0</strong>Semangat belajar</div>
  </div>
- <div class="grid" style="margin-top:16px">
-  <div class="card tilt rv"><h3>Identitas</h3><ul class="info">
+ <div class="grid" style="margin-top:20px">
+  <div class="card tilt rv"><h3><svg class="ic" aria-hidden="true"><use href="#i-id"/></svg> Identitas</h3><ul class="info">
    <li><b>Nama lengkap:</b> Shinwan Athaa Kanz</li><li><b>Nama panggilan:</b> Shinwan</li><li><b>Kelas:</b> 9 Ali</li><li><b>Sekolah:</b> SMP [isi nama sekolahmu]</li></ul></div>
-  <div class="card tilt rv" style="--d:.12s"><h3>Sekilas tentang aku</h3><p style="margin-top:8px">Aku seorang pelajar yang cerdas, cepat paham, dan suka mencari tahu. Bagiku belajar itu seru, apalagi kalau bisa diselingi futsal, game, dan film.</p></div>
-  <div class="card tilt rv" style="--d:.24s"><h3>Hal yang kusuka</h3>
-   <div class="tags"><span class="tag">🍜 Makan</span><span class="tag">🎮 Game</span><span class="tag">📚 Buku</span><span class="tag">🎬 Film</span><span class="tag">⚽ Futsal</span><span class="tag">✏️ Belajar</span></div></div>
+  <div class="card tilt rv" style="--d:.12s;--cc:var(--pink)"><h3><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg> Sekilas tentang aku</h3><p style="margin-top:8px">Aku seorang pelajar yang cerdas, cepat paham, dan suka mencari tahu. Bagiku belajar itu seru, apalagi kalau bisa diselingi futsal, game, dan film.</p></div>
+  <div class="card tilt rv" style="--d:.24s;--cc:var(--blue)"><h3><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Hal yang kusuka</h3>
+   <div class="tags"><span class="tag"><svg class="ic" aria-hidden="true"><use href="#i-bowl"/></svg> Makan</span><span class="tag"><svg class="ic" aria-hidden="true"><use href="#i-gamepad"/></svg> Game</span><span class="tag"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Buku</span><span class="tag"><svg class="ic" aria-hidden="true"><use href="#i-film"/></svg> Film</span><span class="tag"><svg class="ic" aria-hidden="true"><use href="#i-ball"/></svg> Futsal</span><span class="tag"><svg class="ic" aria-hidden="true"><use href="#i-pencil"/></svg> Belajar</span></div></div>
  </div>
 </section>
 
+<div class="dv" aria-hidden="true"></div>
 <section id="skills">
  <h2>My Skills</h2><p class="sub">Kemampuan saya</p>
  <div class="card rv">
   <!-- Ubah angka data-v sesuai kemampuanmu yang sebenarnya, ya! -->
-  <div class="bar"><div class="t"><span>🧠 Belajar &amp; berpikir logis</span><span class="pct">90%</span></div><div class="track"><div class="fill" data-v="90"></div></div></div>
-  <div class="bar"><div class="t"><span>🤝 Kerja sama tim (futsal &amp; tugas kelompok)</span><span class="pct">85%</span></div><div class="track"><div class="fill" data-v="85"></div></div></div>
-  <div class="bar"><div class="t"><span>📖 Membaca &amp; memahami bacaan</span><span class="pct">85%</span></div><div class="track"><div class="fill" data-v="85"></div></div></div>
-  <div class="bar"><div class="t"><span>💻 Menggunakan aplikasi digital</span><span class="pct">80%</span></div><div class="track"><div class="fill" data-v="80"></div></div></div>
-  <div class="bar"><div class="t"><span>🎤 Public speaking</span><span class="pct">70%</span></div><div class="track"><div class="fill" data-v="70"></div></div></div>
+  <div class="bar"><div class="t"><span><svg class="ic" aria-hidden="true"><use href="#i-brain"/></svg> Belajar &amp; berpikir logis</span><span class="pct">90%</span></div><div class="track"><div class="fill" data-v="90"></div></div></div>
+  <div class="bar"><div class="t"><span><svg class="ic" aria-hidden="true"><use href="#i-people"/></svg> Kerja sama tim (futsal &amp; tugas kelompok)</span><span class="pct">85%</span></div><div class="track"><div class="fill" data-v="85"></div></div></div>
+  <div class="bar"><div class="t"><span><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Membaca &amp; memahami bacaan</span><span class="pct">85%</span></div><div class="track"><div class="fill" data-v="85"></div></div></div>
+  <div class="bar"><div class="t"><span><svg class="ic" aria-hidden="true"><use href="#i-laptop"/></svg> Menggunakan aplikasi digital</span><span class="pct">80%</span></div><div class="track"><div class="fill" data-v="80"></div></div></div>
+  <div class="bar"><div class="t"><span><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg> Public speaking</span><span class="pct">70%</span></div><div class="track"><div class="fill" data-v="70"></div></div></div>
  </div>
 </section>
 
+<div class="dv" aria-hidden="true"></div>
 <section id="projects">
  <h2>My Projects</h2><p class="sub">Galeri foto saya</p>
  <div class="galeri rv">
-  <figure>
-   <img src="shinwan1.png" alt="Foto Shinwan">
-   <figcaption>Foto Shinwan</figcaption>
-  </figure>
-  <figure style="--d:.12s">
-   <img src="shinwan2.png" alt="Foto bersama Shinwan">
-   <figcaption>Foto Bersama Shinwan</figcaption>
-  </figure>
+  <figure><img src="shinwan1.png" alt="Foto Shinwan"><figcaption>Foto Shinwan</figcaption></figure>
+  <figure><img src="shinwan2.png" alt="Foto bersama Shinwan"><figcaption>Foto Bersama Shinwan</figcaption></figure>
  </div>
 </section>
+
+<div class="mq out" aria-hidden="true"><div>
+ <span><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg> Top 5 Paralel</span><span><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg> OSN IPS</span><span><svg class="ic" aria-hidden="true"><use href="#i-ball"/></svg> Futsal</span><span><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg> Kelas 9 Ali</span><span><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg> Matematika</span><span><svg class="ic" aria-hidden="true"><use href="#i-people"/></svg> Kerja Sama Tim</span><span><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg> Top 5 Paralel</span><span><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg> OSN IPS</span><span><svg class="ic" aria-hidden="true"><use href="#i-ball"/></svg> Futsal</span><span><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg> Kelas 9 Ali</span><span><svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg> Matematika</span><span><svg class="ic" aria-hidden="true"><use href="#i-people"/></svg> Kerja Sama Tim</span>
+</div></div>
 
 <section id="achievements">
  <h2>My Achievements</h2><p class="sub">Prestasi saya</p>
  <div class="grid">
-  <div class="card hob tilt rv"><div class="e">🏆</div><h3>Rangking 5 Besar</h3><p>Memasuki top 5 besar rangking dan 10 paralel juga.</p></div>
-  <div class="card hob tilt rv" style="--d:.12s"><div class="e">🌱</div><h3>OSN Ips</h3><p>Terus belajar OSN ips dan meningkatkan nilai di kelas 9, serta berani mencoba hal baru seperti membuat website ini.</p></div>
-  <div class="card hob tilt rv" style="--d:.24s"><div class="e">⚽</div><h3>Aktif berolahraga</h3><p>Rutin bermain futsal untuk melatih kerja sama tim dan menjaga kesehatan.</p></div>
+  <div class="card hob c1 tilt rv"><div class="e"><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg></div><h3>Rangking 5 Besar</h3><p>Memasuki top 5 besar rangking dan 10 paralel juga.</p></div>
+  <div class="card hob c2 tilt rv" style="--d:.12s"><div class="e"><svg class="ic" aria-hidden="true"><use href="#i-sprout"/></svg></div><h3>OSN Ips</h3><p>Terus belajar OSN ips dan meningkatkan nilai di kelas 9, serta berani mencoba hal baru seperti membuat website ini.</p></div>
+  <div class="card hob c4 tilt rv" style="--d:.24s"><div class="e"><svg class="ic" aria-hidden="true"><use href="#i-ball"/></svg></div><h3>Aktif berolahraga</h3><p>Rutin bermain futsal untuk melatih kerja sama tim dan menjaga kesehatan.</p></div>
  </div>
 </section>
 
+<div class="dv" aria-hidden="true"></div>
 <section id="education">
  <h2>My Education</h2><p class="sub">Pendidikan</p>
- <div class="card rv"><ul class="info">
-  <li><b>Sekarang:</b> SMPIT Assyifa Boarding school, kelas 9 Ali</li><li><b>Sebelumnya:</b> SDIT 1 Depok</li>
-  <li><b>Pelajaran favorit:</b>Matematika,Ips</li><li><b>Pengalaman berkesan:</b> [ceritakan satu pengalaman belajar yang paling berkesan]</li></ul></div>
+ <div class="card rv"><ul class="tl">
+  <li><b>Sebelumnya</b>SDIT 1 Depok</li>
+  <li><b>Sekarang</b>SMPIT Assyifa Boarding school, kelas 9 Ali</li>
+  <li><b>Pelajaran favorit</b>Matematika, Ips</li>
+  <li><b>Pengalaman berkesan</b>[ceritakan satu pengalaman belajar yang paling berkesan]</li></ul></div>
 </section>
 
+<div class="dv" aria-hidden="true"></div>
 <section id="hobbies">
  <h2>My Hobbies</h2><p class="sub">Minat dan hobi</p>
  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
-  <div class="card hob tilt rv"><div class="e">🍜</div><h3>Makan</h3><p>Mencoba makanan enak.</p></div>
-  <div class="card hob tilt rv" style="--d:.08s"><div class="e">🎮</div><h3>Main Game</h3><p>Melatih strategi dan fokus.</p></div>
-  <div class="card hob tilt rv" style="--d:.16s"><div class="e">📚</div><h3>Baca Buku</h3><p>Menambah wawasan.</p></div>
-  <div class="card hob tilt rv" style="--d:.24s"><div class="e">🎬</div><h3>Nonton Film</h3><p>Hiburan dan inspirasi.</p></div>
-  <div class="card hob tilt rv" style="--d:.32s"><div class="e">⚽</div><h3>Futsal</h3><p>Sehat dan kompak.</p></div>
-  <div class="card hob tilt rv" style="--d:.4s"><div class="e">✏️</div><h3>Belajar</h3><p>Selalu ingin tahu.</p></div>
+  <div class="card hob c1 tilt rv"><div class="e"><svg class="ic" aria-hidden="true"><use href="#i-bowl"/></svg></div><h3>Makan</h3><p>Mencoba makanan enak.</p></div>
+  <div class="card hob c2 tilt rv" style="--d:.08s"><div class="e"><svg class="ic" aria-hidden="true"><use href="#i-gamepad"/></svg></div><h3>Main Game</h3><p>Melatih strategi dan fokus.</p></div>
+  <div class="card hob c3 tilt rv" style="--d:.16s"><div class="e"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></div><h3>Baca Buku</h3><p>Menambah wawasan.</p></div>
+  <div class="card hob c4 tilt rv" style="--d:.24s"><div class="e"><svg class="ic" aria-hidden="true"><use href="#i-film"/></svg></div><h3>Nonton Film</h3><p>Hiburan dan inspirasi.</p></div>
+  <div class="card hob c1 tilt rv" style="--d:.32s"><div class="e"><svg class="ic" aria-hidden="true"><use href="#i-ball"/></svg></div><h3>Futsal</h3><p>Sehat dan kompak.</p></div>
+  <div class="card hob c2 tilt rv" style="--d:.4s"><div class="e"><svg class="ic" aria-hidden="true"><use href="#i-pencil"/></svg></div><h3>Belajar</h3><p>Selalu ingin tahu.</p></div>
  </div>
 </section>
 
+<div class="dv" aria-hidden="true"></div>
 <section id="goals">
  <h2>My Goals</h2><p class="sub">Cita-cita dan target masa depan</p>
  <div class="grid">
-  <div class="card tilt rv"><h3>🎯 Cita-cita</h3><p>Kuliah diluar negri,atau paling paling universitas indonesia terbaik!!</p></div>
-  <div class="card tilt rv" style="--d:.12s"><h3>🏫 Target pendidikan</h3><p>Lulus SMP dengan nilai terbaik dan diterima di SMA pilihan.</p></div>
-  <div class="card tilt rv" style="--d:.24s"><h3>🚀 Ingin dikembangkan</h3><p>Kemampuan berpikir kritis, public speaking, dan membuat karya digital.</p></div>
+  <div class="card tilt rv"><h3><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg> Cita-cita</h3><p>Kuliah diluar negri,atau paling paling universitas indonesia terbaik!!</p></div>
+  <div class="card tilt rv" style="--d:.12s;--cc:var(--pink)"><h3><svg class="ic" aria-hidden="true"><use href="#i-school"/></svg> Target pendidikan</h3><p>Lulus SMP dengan nilai terbaik dan diterima di SMA pilihan.</p></div>
+  <div class="card tilt rv" style="--d:.24s;--cc:var(--blue)"><h3><svg class="ic" aria-hidden="true"><use href="#i-rocket"/></svg> Ingin dikembangkan</h3><p>Kemampuan berpikir kritis, public speaking, dan membuat karya digital.</p></div>
  </div>
 </section>
 
+<div class="mq rev" aria-hidden="true"><div>
+ <span><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> Ayo kenalan!</span><span><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg> Terima kasih sudah mampir</span><span><svg class="ic" aria-hidden="true"><use href="#i-rocket"/></svg> Terus belajar</span><span><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg> Sampai jumpa</span><span><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> Ayo kenalan!</span><span><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg> Terima kasih sudah mampir</span><span><svg class="ic" aria-hidden="true"><use href="#i-rocket"/></svg> Terus belajar</span><span><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg> Sampai jumpa</span>
+</div></div>
+
 <section id="contact">
  <h2>Contact Me</h2><p class="sub">Hubungi saya</p>
- <div class="card contact rv" style="display:grid;gap:6px">
-  <a class="c" href="mailto:shinwan.atha@smp.belajar.id">✉️ shinwan.atha@smp.belajar.id</a>
-  <a class="c" href="https://instagram.com/shnwn_ath" target="_blank" rel="noopener">📸 Instagram: @shnwn_ath</a>
-  <a class="c" href="https://www.tiktok.com/@gataulupa" target="_blank" rel="noopener">🎵 TikTok: @gataulupa</a>
+ <div class="contact rv">
+  <a class="c" href="mailto:shinwan.atha@smp.belajar.id"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> shinwan.atha@smp.belajar.id</a>
+  <a class="c" href="https://instagram.com/shnwn_ath" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg> Instagram: @shnwn_ath</a>
+  <a class="c" href="https://www.tiktok.com/@gataulupa" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg> TikTok: @gataulupa</a>
  </div>
 </section>
 </main>
 
-<footer>© 2026 Personal Portfolio | Created by Shinwan Athaa Kanz<small>Kelas 9 Ali · Terus belajar, terus bertumbuh.</small></footer>
-<button id="top" aria-label="Kembali ke atas">↑</button>
+<footer>© 2026 Personal Portfolio | Created by Shinwan Athaa Kanz<small>Kelas 9 Ali, terus belajar, terus bertumbuh <svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg></small></footer>
+<button id="top" aria-label="Kembali ke atas"><svg class="ic" aria-hidden="true"><use href="#i-rocket"/></svg></button>
 
 <script>
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const ic=n=>'<svg class="ic" aria-hidden="true"><use href="#i-'+n+'"/></svg>';
+const pal=['#F6C026','#FF8A5B','#FF9EBB','#8EC5FF','#8CEBC0'];
+// Doodle ikon dan bentuk melayang di latar
+(()=>{if(reduce)return;const d=document.getElementById('doodles'),ids=['star','spark','pencil','book','ball','gamepad','film','bulb','bowl','cap','trophy','note','rocket','mic','camera'];
+ for(let i=0;i<40;i++){const s=document.createElement('span'),k=i%5,z=14+Math.random()*26;
+  s.style.cssText='left:'+(Math.random()*96)+'%;top:'+(100+Math.random()*20)+'vh;animation-duration:'+(16+Math.random()*22)+'s;animation-delay:'+(-Math.random()*30)+'s;color:'+pal[i%5];
+  if(k===0){s.className='g-ring';s.style.width=s.style.height=z+'px'}
+  else if(k===1){s.className='g-tri';s.style.width=s.style.height=z+'px'}
+  else{s.innerHTML=ic(ids[i%ids.length]);s.style.fontSize=(22+Math.random()*26)+'px'}
+  d.appendChild(s)}})();
 // Loading screen: pensil menulis
 (()=>{
- const w=document.getElementById('welcome'),f=document.getElementById('lfill'),pc=document.getElementById('lpct'),tx=document.getElementById('ldtxt'),wt=document.getElementById('wtext'),pen=document.getElementById('pen');
- const msg=[[0,'Mengambil pensil…'],[30,'Menulis namaku…'],[60,'Merapikan hasil karya…'],[90,'Hampir siap, selamat datang!']];
- let ready=document.readyState==='complete',t0=0;const DUR=4200;addEventListener('load',()=>ready=true);
+ const w=document.getElementById('welcome'),f=document.getElementById('lfill'),pc=document.getElementById('lpct'),tx=document.getElementById('ldtxt'),wt=document.getElementById('wtext'),pen=document.getElementById('pen'),ball=document.getElementById('ball');
+ const msg=[[0,'Mengambil pensil…'],[20,'Memanaskan badan…'],[40,'Membuka buku catatan…'],[60,'Mewarnai halaman…'],[80,'Menaburkan konfeti…'],[95,'Hampir siap, selamat datang!']];
+ let ready=document.readyState==='complete',t0=0;const DUR=5200;addEventListener('load',()=>ready=true);
  const ease=x=>.5-.5*Math.cos(Math.PI*x);
  function frame(now){
   if(!t0)t0=now;const el=now-t0;let p=ease(Math.min(1,el/DUR))*100;if(!ready&&p>92)p=92;
-  f.style.width=p+'%';wt.style.clipPath='inset(-40% '+(100-p)+'% -40% 0)';pc.textContent=Math.floor(p)+'%';
+  f.style.width=p+'%';ball.style.left=p+'%';ball.style.transform='translate(-50%,-50%) rotate('+(p*9)+'deg)';wt.style.clipPath='inset(-40% '+(100-p)+'% -40% 0)';pc.textContent=Math.floor(p)+'%';
   tx.textContent=msg.filter(m=>p>=m[0]).pop()[1];
   const W=wt.offsetWidth,H=wt.offsetHeight,ph=el*.019,k=reduce?0:1,stroke=Math.abs(Math.sin(ph));
   const wob=k*(-stroke*H*.42+Math.sin(el*.06)*2),sway=k*(Math.cos(ph*2)*6+Math.sin(el*.011)*3),rot=-52+k*(Math.sin(ph)*11+Math.sin(el*.007)*4);
@@ -267,12 +396,13 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
  }
  requestAnimationFrame(frame);
 })();
-// Intro hero: huruf nama muncul satu per satu + teks mengetik
+// Intro hero
 let started=false;
 function intro(){
  if(started)return;started=true;
  const h=document.getElementById('h1');
- [...'Shinwan Athaa Kanz'].forEach((c,i)=>{const s=document.createElement('span');s.textContent=c===' '?'\u00A0':c;s.style.animationDelay=(i*.05)+'s';h.appendChild(s)});
+ let n=0;'Shinwan Athaa Kanz'.split(' ').forEach(word=>{const g=document.createElement('span');g.className='wd';[...word].forEach(c=>{const s=document.createElement('span');s.className='ch';s.textContent=c;s.style.animationDelay=(n++*.05)+'s';g.appendChild(s)});h.appendChild(g)});
+ setTimeout(()=>h.classList.add('go'),1400);
  const words=['pelajar yang rajin','pemain futsal','pencinta film & game','pembelajar seumur hidup'],el=document.getElementById('typed');
  if(reduce){el.textContent=words[0];return}
  let wi=0,ci=0,del=false;
@@ -286,15 +416,16 @@ function intro(){
 setTimeout(intro,13000);
 // Tema
 const root=document.documentElement,tb=document.getElementById('theme');
-tb.onclick=()=>{const d=getComputedStyle(root).getPropertyValue('--bg').trim()==='#1D2233';root.dataset.theme=d?'light':'dark';tb.textContent=d?'🌙 Gelap':'☀️ Terang'};
-if(getComputedStyle(root).getPropertyValue('--bg').trim()==='#1D2233')tb.textContent='☀️ Terang';
-// Scroll reveal, skill bar, count-up
+const isD=()=>getComputedStyle(root).getPropertyValue('--bg').trim()==='#1D2233';
+const lab=()=>{tb.innerHTML=isD()?ic('sun')+' Terang':ic('moon')+' Gelap'};
+tb.onclick=()=>{root.dataset.theme=isD()?'light':'dark';lab()};lab();
+// Reveal, skill bar, count-up
 const io=new IntersectionObserver(es=>es.forEach(x=>{if(!x.isIntersecting)return;const t=x.target;io.unobserve(t);
  if(t.classList.contains('fill'))t.style.width=t.dataset.v+'%';
  else if(t.dataset.n){const n=+t.dataset.n,s=t.dataset.s||'';let st=null;(function c(ts){if(!st)st=ts;const r=Math.min(1,(ts-st)/1200);t.textContent=Math.round(n*(1-Math.pow(1-r,3)))+s;if(r<1)requestAnimationFrame(c)})(performance.now())}
  else t.classList.add('in')}),{threshold:.25});
 document.querySelectorAll('.rv,.fill,h2,[data-n]').forEach(e=>io.observe(e));
-// Progress bar, nav aktif, tombol atas
+// Progress, nav aktif, tombol atas
 const prog=document.getElementById('prog'),top_=document.getElementById('top'),links=[...document.querySelectorAll('nav a.l')],secs=[...document.querySelectorAll('section')];
 addEventListener('scroll',()=>{
  prog.style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+'%';
@@ -303,22 +434,45 @@ addEventListener('scroll',()=>{
  links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur));
 },{passive:true});
 top_.onclick=()=>scrollTo({top:0,behavior:'smooth'});
-// Cahaya mengikuti kursor + kartu miring 3D
+// Cahaya kursor, jejak bintang, kartu miring 3D
 const glow=document.getElementById('glow');
 if(!reduce){
- addEventListener('pointermove',e=>{glow.style.opacity=1;glow.style.transform='translate('+(e.clientX-210)+'px,'+(e.clientY-210)+'px)'});
+ let last=0;
+ addEventListener('pointermove',e=>{glow.style.opacity=1;glow.style.transform='translate('+(e.clientX-210)+'px,'+(e.clientY-210)+'px)';
+  const n=performance.now();if(e.pointerType==='mouse'&&n-last>55){last=n;const s=document.createElement('i');s.className='sp';s.innerHTML=ic(Math.random()<.5?'spark':'star');s.style.color=pal[Math.floor(Math.random()*5)];s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';document.body.appendChild(s);setTimeout(()=>s.remove(),800)}});
  document.querySelectorAll('.tilt').forEach(c=>{
   c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-   c.style.transition='border-color .25s,box-shadow .25s';c.style.transform='perspective(700px) rotateX('+(-y*9)+'deg) rotateY('+(x*9)+'deg) translateY(-4px)'});
+   c.style.transition='border-color .25s,box-shadow .25s,background .25s';c.style.transform='perspective(700px) rotateX('+(-y*9)+'deg) rotateY('+(x*9)+'deg) translateY(-4px)'});
   c.addEventListener('pointerleave',()=>{c.style.transition='';c.style.transform=''});
  });
 }
-// Konfeti saat avatar diklik
+// Transisi loading antar bagian
+const tr=document.getElementById('tr'),tt=document.getElementById('tt'),te=tr.querySelector('.te'),tbu=tr.querySelector('.tb u');
+const info={home:['home','Home'],about:['user','About'],skills:['bolt','Skills'],projects:['camera','Projects'],achievements:['trophy','Achievements'],education:['cap','Education'],hobbies:['gamepad','Hobbies'],goals:['rocket','Goals'],contact:['mail','Contact']};
+let busy=false;
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+ const id=a.getAttribute('href').slice(1),t=document.getElementById(id);if(!t||reduce)return;
+ e.preventDefault();if(busy)return;busy=true;
+ const x=info[id]||['star',id];te.innerHTML=ic(x[0]);tt.textContent='Menuju '+x[1]+'…';
+ tbu.style.transition='none';tbu.style.width='0';tr.classList.add('on');
+ setTimeout(()=>{tbu.style.transition='width .7s ease';tbu.style.width='100%'},450);
+ setTimeout(()=>{t.scrollIntoView({behavior:'instant',block:'start'});history.replaceState(null,'','#'+id)},1050);
+ setTimeout(()=>tr.classList.remove('on'),1400);
+ setTimeout(()=>{busy=false},2000);
+}));
+// Percikan ikon saat klik di mana saja
+const bi=['star','spark','ball','book','gamepad','bulb','pencil'];
+document.addEventListener('click',e=>{if(reduce||e.target.closest('a,button,#av'))return;
+ for(let i=0;i<7;i++){const s=document.createElement('i');s.className='sp';s.innerHTML=ic(bi[Math.floor(Math.random()*7)]);s.style.cssText+=';color:'+pal[i%5]+';font-size:22px;left:'+(e.clientX+Math.random()*60-30)+'px;top:'+(e.clientY+Math.random()*40-20)+'px;animation-duration:'+(.7+Math.random()*.7)+'s';document.body.appendChild(s);setTimeout(()=>s.remove(),1500)}});
+// Konfeti saat foto diklik
 document.getElementById('av').onclick=e=>{
- if(reduce)return;const r=e.currentTarget.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,cols=['#F6C026','#FF8A5B','#5BB8FF','#7ED957','#E9A3A3'];
- for(let i=0;i<40;i++){const d=document.createElement('div');d.className='cf';d.style.background=cols[i%5];d.style.left=cx+'px';d.style.top=cy+'px';document.body.appendChild(d);
-  const a=Math.random()*Math.PI*2,v=120+Math.random()*180;
-  d.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:'translate('+Math.cos(a)*v+'px,'+(Math.sin(a)*v+160)+'px) rotate('+(Math.random()*720)+'deg)',opacity:0}],{duration:1100+Math.random()*600,easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=()=>d.remove()}
+ if(reduce)return;const r=e.currentTarget.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
+ for(let i=0;i<60;i++){const d=document.createElement('div');d.className='cf';
+  if(i%3===0){d.innerHTML=ic(bi[i%7]);d.style.cssText+=';width:auto;height:auto;font-size:24px;color:'+pal[i%5]}
+  else{d.style.background=pal[i%5];if(i%2)d.style.borderRadius='50%'}
+  d.style.left=cx+'px';d.style.top=cy+'px';document.body.appendChild(d);
+  const a=Math.random()*Math.PI*2,v=120+Math.random()*240;
+  d.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:'translate('+Math.cos(a)*v+'px,'+(Math.sin(a)*v+170)+'px) rotate('+(Math.random()*720)+'deg)',opacity:0}],{duration:1200+Math.random()*800,easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=()=>d.remove()}
 };
 </script>
 </body>
